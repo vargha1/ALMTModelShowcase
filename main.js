@@ -4,7 +4,7 @@ main.addEventListener('wheel', (event) => {
   event.preventDefault(); // Prevent default vertical scroll
 
   // Scroll horizontally based on the vertical scroll amount
-  main.scrollLeft += event.deltaY * 4;
+  main.scrollLeft += event.deltaY * 16;
 
   // Ensure smooth snapping behavior
   main.style.scrollSnapType = 'x mandatory'; // Ensure snapping is enabled
