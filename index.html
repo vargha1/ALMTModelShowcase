@@ -5,6 +5,9 @@
   <meta charset="UTF-8" />
   <link rel="icon" type="image/svg+xml" href="/vite.svg" />
   <link rel="stylesheet" href="/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite App</title>
   <script type="vertex" id="vertexshader">
@@ -24,25 +27,60 @@
       </script>
 </head>
 
-<body
-  class="flex flex-col justify-center items-center h-[100svh] w-full lg:px-24 px-12 lg:py-0 py-12 overflow-hidden bg-[#292c2b]">
-  <div class="flex flex-col lg:h-4/5 h-full w-full text-white bg-[#1a1a17]">
+<body class="flex flex-col justify-center items-center h-[100svh] w-full overflow-hidden bg-[#292c2b]">
+  <div class="flex flex-col h-full w-full text-white bg-[#1a1a17]">
     <header class="flex justify-between p-4">
-      <h1 class="lg:text-2xl">Almubdieuntech.</h1>
-      <div class="flex me-8">
+      <h1 class="lg:text-2xl text-sm">Almubdieuntech.</h1>
+      <div class="flex me-8 text-xs">
         <button>Catalog</button>
-        <button class="px-8">Cart</button>
+        <button class="lg:px-8 px-4">Cart</button>
         <button>Menu</button>
       </div>
     </header>
-    <main
-      class="flex w-full flex-nowrap h-[calc(100%-64px)] overflow-x-auto snap-x snap-mandatory scroll-smooth transition-all duration-500">
-      <div id="model1" class="flex justify-center items-center flex-shrink-0 snap-center w-full h-full">ALMT
+    <main class="flex flex-nowrap w-full h-[calc(100%-64px)]">
+      <div class="swiper">
+        <div class="swiper-wrapper" id="swiper-wrapper">
+          <div class="swiper-slide" id="model1">
+          </div>
+          <div class="swiper-slide" id="model2"></div>
+          <div class="swiper-slide" id="model3"></div>
+          <div class="swiper-slide" id="model4"></div>
+          <div class="swiper-slide" id="model5"></div>
+          <div class="swiper-slide" id="model6"></div>
+          <div class="swiper-slide" id="model7"></div>
+          <div class="swiper-slide" id="model8"></div>
+        </div>
+        <div class="swiper-pagination"></div>
       </div>
-      <div id="model2" class="flex justify-center items-center flex-shrink-0 snap-center w-full h-full">Almubdieuntech
+      <div class="flex flex-col absolute h-[32px] z-20 left-1/2 bottom-5 -translate-x-1/2 overflow-hidden text-center"
+        id="textWrapper1">
+        <h2 class="text-2xl text-white relative select-none text1">Chocolate</h2>
+        <h2 class="text-2xl text-white relative select-none text2">Black Chocolate</h2>
+        <h2 class="text-2xl text-white relative select-none text3">Nestle</h2>
+        <h2 class="text-2xl text-white relative select-none text4">Dark Chocolate</h2>
+        <h2 class="text-2xl text-white relative select-none text5">Juice</h2>
+        <h2 class="text-2xl text-white relative select-none text6">Mobile</h2>
+        <h2 class="text-2xl text-white relative select-none text7">Suzuki</h2>
+        <h2 class="text-2xl text-white relative select-none text8">Cat Food</h2>
       </div>
-      <div id="model3" class="flex justify-center items-center flex-shrink-0 snap-center w-full h-full">
-        asdfsaodfjioswdgrwehsdg
+      <div class="flex flex-col absolute h-[32px] z-20 left-1/2 bottom-12 -translate-x-1/2 overflow-hidden text-center"
+        id="textWrapper1">
+        <button class="text-2xl relative text-red-600 text1" id="detail1" onclick="handleDetails(1)">View
+          Detail</button>
+        <button class="text-2xl relative text-red-600 text2" id="detail2" onclick="handleDetails(2)">View
+          Detail</button>
+        <button class="text-2xl relative text-red-600 text3" id="detail3" onclick="handleDetails(3)">View
+          Detail</button>
+        <button class="text-2xl relative text-red-600 text4" id="detail4" onclick="handleDetails(4)">View
+          Detail</button>
+        <button class="text-2xl relative text-red-600 text5" id="detail5" onclick="handleDetails(5)">View
+          Detail</button>
+        <button class="text-2xl relative text-red-600 text6" id="detail6" onclick="handleDetails(6)">View
+          Detail</button>
+        <button class="text-2xl relative text-red-600 text7" id="detail7" onclick="handleDetails(7)">View
+          Detail</button>
+        <button class="text-2xl relative text-red-600 text8" id="detail8" onclick="handleDetails(8)">View
+          Detail</button>
       </div>
     </main>
   </div>

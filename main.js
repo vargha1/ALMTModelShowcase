@@ -1,65 +1,952 @@
 import * as T from "three"
 import gsap from "gsap";
-import { OrbitControls, TextGeometry, FontLoader } from "three/examples/jsm/Addons.js";
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { OrbitControls, FontLoader } from "three/examples/jsm/Addons.js";
+import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';;
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
 import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
-import { TextureLoader } from "three";
 import { DRACOLoader } from 'three/examples/jsm/Addons.js';
 import RajdHani from "./RajdHani.json"
+import Swiper from 'swiper';
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
 
-const main = document.querySelector('main');
+const text1 = document.querySelectorAll('.text1');
+const text2 = document.querySelectorAll('.text2');
+const text3 = document.querySelectorAll('.text3');
+const text4 = document.querySelectorAll('.text4');
+const text5 = document.querySelectorAll('.text5');
+const text6 = document.querySelectorAll('.text6');
+const text7 = document.querySelectorAll('.text7');
+const text8 = document.querySelectorAll('.text8');
 
-main.addEventListener('wheel', (event) => {
-  event.preventDefault(); // Prevent default vertical scroll
-
-  // Scroll horizontally based on the vertical scroll amount
-  main.scrollLeft += event.deltaY * 16;
-
-  // Ensure smooth snapping behavior
-  main.style.scrollSnapType = 'x mandatory'; // Ensure snapping is enabled
-  main.style.scrollBehavior = 'smooth'; // Smooth scroll behavior
+const swiper = new Swiper('.swiper', {
+  pagination: {
+    el: '.swiper-pagination',
+  }
 });
 
-main.addEventListener("scroll", event => {
-  document.getElementById("model1").style.fontSize = `${event.target * 3}px`
-  console.log(event);
+swiper.on('progress', (swiper) => {
+  const totalProgress = Math.abs(swiper.progress) * 100;
+
+  text1.forEach(text => { text.style.top = -totalProgress * 2.1 + 'px'; })
+  text2.forEach(text => { text.style.top = -totalProgress * 2.5 + 'px'; })
+  text3.forEach(text => { text.style.top = -totalProgress * 2.4 + 'px'; })
+  text4.forEach(text => { text.style.top = -totalProgress * 2.3 + 'px'; })
+  text5.forEach(text => { text.style.top = -totalProgress * 2.5 + 'px'; })
+  text6.forEach(text => { text.style.top = -totalProgress * 2.2 + 'px'; })
+  text7.forEach(text => { text.style.top = -totalProgress * 2.2 + 'px'; })
+  text8.forEach(text => { text.style.top = -totalProgress * 2.2 + 'px'; })
+});
+
+swiper.on('slideChange', (swiper) => {
+  const activeIndex = swiper.activeIndex;
+  const totalProgress = Math.abs(swiper.progress) * 100;
+  console.log(activeIndex);
+  text1.forEach(text => {
+    gsap.to(text.style, {
+      top: -totalProgress * 2.1 + 'px',
+      duration: 0.6
+    })
+  })
+  text2.forEach(text => {
+    gsap.to(text.style, {
+      top: -totalProgress * 2.5 + 'px',
+      duration: 0.6
+    })
+  })
+  text3.forEach(text => {
+    gsap.to(text.style, {
+      top: -totalProgress * 2.4 + 'px',
+      duration: 0.6
+    })
+  })
+  text4.forEach(text => {
+    gsap.to(text.style, {
+      top: -totalProgress * 2.3 + 'px',
+      duration: 0.6
+    })
+  })
+  text5.forEach(text => {
+    gsap.to(text.style, {
+      top: -totalProgress * 2.25 + 'px',
+      duration: 0.6
+    })
+  })
+  text6.forEach(text => {
+    gsap.to(text.style, {
+      top: -totalProgress * 2.2 + 'px',
+      duration: 0.6
+    })
+  })
+  text7.forEach(text => {
+    gsap.to(text.style, {
+      top: -totalProgress * 2.2 + 'px',
+      duration: 0.6
+    })
+  })
+  text8.forEach(text => {
+    gsap.to(text.style, {
+      top: -totalProgress * 2.2 + 'px',
+      duration: 0.6
+    })
+  })
+  scene.traverse(obj => {
+    if (obj.name == "Sketchfab_Scene") {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      loader.setPath("./blackChocolate/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(40, 40, 40)
+        mesh.name = "Sketchfab_Scene2"
+        // reflector.position.y = 1
+        mesh.position.set(0, 30, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      camera.position.set(350, -150, -90)
+      gsap.to(camera.position, {
+        x: 234,
+        y: -143,
+        z: -24.5,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: 106,
+        y: -133,
+        z: 47,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene2" && activeIndex == 0) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      loader.setPath("./chocolate/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(450, 450, 450)
+        mesh.name = "Sketchfab_Scene"
+        // reflector.position.y = 1
+        mesh.position.set(-15, 0, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      camera.position.set(350, -150, -90)
+      gsap.to(camera.position, {
+        x: 10,
+        y: 80,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: 0,
+        y: 13,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene2" && activeIndex == 2) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      loader.setPath("./nestle/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(250, 250, 250)
+        mesh.name = "Sketchfab_Scene3"
+        // reflector.position.y = 1
+        mesh.position.set(-15, 0, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      gsap.to(camera.position, {
+        x: 165,
+        y: 0,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene3" && activeIndex == 1) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      loader.setPath("./blackChocolate/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(40, 40, 40)
+        mesh.name = "Sketchfab_Scene2"
+        // reflector.position.y = 1
+        mesh.position.set(0, 30, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      camera.position.set(350, -150, -90)
+      gsap.to(camera.position, {
+        x: 234,
+        y: -143,
+        z: -24.5,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: 106,
+        y: -133,
+        z: 47,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene3" && activeIndex == 3) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      loader.setPath("./darkChocolate/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(450, 450, 450)
+        mesh.name = "Sketchfab_Scene4"
+        // reflector.position.y = 1
+        mesh.position.set(-15, 0, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      gsap.to(camera.position, {
+        x: 135,
+        y: 0,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene4" && activeIndex == 2) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      loader.setPath("./nestle/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(250, 250, 250)
+        mesh.name = "Sketchfab_Scene3"
+        // reflector.position.y = 1
+        mesh.position.set(-15, 0, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      gsap.to(camera.position, {
+        x: 165,
+        y: 0,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene4" && activeIndex == 4) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      loader.setPath("./juice/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(50, 50, 50)
+        mesh.name = "Sketchfab_Scene5"
+        // reflector.position.y = 1
+        mesh.position.set(-40, 0, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      gsap.to(camera.position, {
+        x: -40,
+        y: -13,
+        z: 100,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: -40,
+        y: -13,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene5" && activeIndex == 3) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
+      loader.setPath("./darkChocolate/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(450, 450, 450)
+        mesh.name = "Sketchfab_Scene4"
+        // reflector.position.y = 1
+        mesh.position.set(-15, 0, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      gsap.to(camera.position, {
+        x: 135,
+        y: 0,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: 0,
+        y: 0,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene5" && activeIndex == 5) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
+      loader.setPath("./mobile/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(350, 350, 350)
+        mesh.name = "Sketchfab_Scene6"
+        // reflector.position.y = 1
+        mesh.position.set(-7, 0, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      gsap.to(camera.position, {
+        x: -8,
+        y: 24,
+        z: 92,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: -8,
+        y: 24,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene6" && activeIndex == 4) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
+      loader.setPath("./juice/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(50, 50, 50)
+        mesh.name = "Sketchfab_Scene5"
+        // reflector.position.y = 1
+        mesh.position.set(-40, 0, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      gsap.to(camera.position, {
+        x: -40,
+        y: -13,
+        z: 100,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: -40,
+        y: -13,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene6" && activeIndex == 6) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
+      loader.setPath("./suzuki/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(30, 30, 30)
+        mesh.name = "Sketchfab_Scene7"
+        // reflector.position.y = 1
+        mesh.position.set(-35, 0, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      gsap.to(camera.position, {
+        x: -108,
+        y: 36,
+        z: 52,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: -69,
+        y: 24,
+        z: 24,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene7" && activeIndex == 5) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene7"))
+      loader.setPath("./mobile/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(350, 350, 350)
+        mesh.name = "Sketchfab_Scene6"
+        // reflector.position.y = 1
+        mesh.position.set(-7, 0, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      gsap.to(camera.position, {
+        x: -8,
+        y: 24,
+        z: 92,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: -8,
+        y: 24,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene7" && activeIndex == 7) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene7"))
+      loader.setPath("./catFood/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(20, 20, 20)
+        mesh.name = "Sketchfab_Scene8"
+        // reflector.position.y = 1
+        mesh.position.set(-8, 0, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      gsap.to(camera.position, {
+        x: -8,
+        y: 24,
+        z: 92,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: -8,
+        y: 24,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene8" && activeIndex == 6) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
+      loader.setPath("./suzuki/")
+      loader.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(30, 30, 30)
+        mesh.name = "Sketchfab_Scene7"
+        // reflector.position.y = 1
+        mesh.position.set(-35, 0, 0);
+        // mesh.traverse(obj => {
+        //   if (obj.name == "polySurface3PIV") {
+        //     new TextureLoader().load("./images/1w.png", function (texture) {
+        //       texture.flipY = false;
+        //       obj.material = new T.MeshStandardMaterial({ map: texture });
+        //     })
+        //   }
+        //   if (obj.name == "MASH1_ReproMesh1Shape") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        //   if (obj.name == "polySurface281PIV") {
+        //     obj.layers.toggle(BLOOM_SCENE)
+        //   }
+        // })
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      // gsap.globalTimeline.clear()
+      gsap.to(camera.position, {
+        x: -108,
+        y: 36,
+        z: 52,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: -69,
+        y: 24,
+        z: 24,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+  })
+
+  for (let i = 0; i < document.getElementById("swiper-wrapper").children.length; i++) {
+    if (document.getElementById("swiper-wrapper").children.item(i).children.item(0) != null) {
+      document.getElementById("swiper-wrapper").children.item(i).children.item(0).remove()
+    }
+  }
+  document.getElementById("swiper-wrapper").children.item(activeIndex).appendChild(renderer.domElement)
 })
+
+window.handleDetails = index => {
+  document.getElementById("swiper-wrapper").style.display = "none";
+  if (index == 1) {
+    
+  }
+}
 
 const font2 = new FontLoader().parse(RajdHani)
 const scene = new T.Scene();
 const camera = new T.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000)
-const loader = new GLTFLoader().setPath("./model/");
+const loader = new GLTFLoader().setPath("./chocolate/");
 const renderer = new T.WebGLRenderer({ antialias: true, alpha: true });
-renderer.setClearColor(0x555b68)
 const draco = new DRACOLoader()
 draco.setDecoderPath('/examples/jsm/libs/draco/');
 loader.setDRACOLoader(draco)
 let imgStateNum = 1;
-
-const textGeometry2 = new TextGeometry('Design By Almubdieuntech.', {
-  font: font2,
-  size: 5,
-  depth: 0.6,
-});
-textGeometry2.computeBoundingBox();
-const textGeometry3 = new TextGeometry('VIRTUAL\nEXHIBITION.', {
-  font: font2,
-  size: 5,
-  depth: 0.6,
-});
-textGeometry3.computeBoundingBox();
-const textMat = new T.MeshStandardMaterial({ color: 0x754833 })
-const textMesh = new T.Mesh(textGeometry2, textMat)
-textMesh.position.set(-70, 4, -30)
-textMesh.rotation.y = -1.55
-const textMesh2 = new T.Mesh(textGeometry3, textMat)
-textMesh2.position.set(-55, 45, 50)
-scene.add(textMesh)
-scene.add(textMesh2)
 
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
@@ -67,11 +954,8 @@ renderer.shadowMap.enabled = true;
 // renderer.toneMapping = T.CineonToneMapping
 // renderer.toneMappingExposure = 1.5
 // renderer.outputColorSpace = T.SRGBColorSpace
-renderer.domElement.classList.add("absolute")
+// renderer.domElement.classList.add("absolute")
 
-var click = new Audio('Sounds/click.mp3');
-var whoosh = new Audio("Sounds/whoosh.mp3")
-var ding = new Audio("Sounds/ding.mp3")
 const darkMaterial = new T.MeshBasicMaterial({ color: 'black' });
 const materials = {};
 
@@ -92,96 +976,89 @@ elem.innerHTML = `
 // document.getElementById("model1").appendChild(elem)
 
 document.addEventListener("DOMContentLoaded", () => {
-  window.start = () => {
-    // const textGeometry = new TextGeometry(event.target[0].value, {
-    //   font: font2,
-    //   size: 3,
-    //   depth: 0.6,
-    // });
-    // textGeometry.computeBoundingBox();
-    // const textMat2 = new T.MeshStandardMaterial({ color: 0xffff00 })
-    // const textMesh2 = new T.Mesh(textGeometry, textMat2)
-    // textMesh2.position.set(11, 14, 10)
-    // textMesh2.rotation.y = 1.55
-    // const textMesh3 = new T.Mesh(textGeometry, textMat2)
-    // textMesh3.position.set(4, 68, 10)
-    // textMesh3.rotation.y = 1.55
+  // const textGeometry = new TextGeometry(event.target[0].value, {
+  //   font: font2,
+  //   size: 3,
+  //   depth: 0.6,
+  // });
+  // textGeometry.computeBoundingBox();
+  // const textMat2 = new T.MeshStandardMaterial({ color: 0xffff00 })
+  // const textMesh2 = new T.Mesh(textGeometry, textMat2)
+  // textMesh2.position.set(11, 14, 10)
+  // textMesh2.rotation.y = 1.55
+  // const textMesh3 = new T.Mesh(textGeometry, textMat2)
+  // textMesh3.position.set(4, 68, 10)
+  // textMesh3.rotation.y = 1.55
 
-    // scene.add(textMesh2)
-    // scene.add(textMesh3)
-    document.querySelector("#startSection").classList.add("hidden")
-    gsap.to(camera.position, {
-      x: 0,
-      y: 120,
-      z: 240,
-      duration: 6,
-      ease: "expo.inOut",
-      onStart: () => controls.enabled = false,
-      onComplete: () => controls.enabled = true,
-    },)
-    gsap.to(controls.target, {
-      x: 0,
-      y: 13,
-      z: 0,
-      duration: 6,
-      ease: "expo.inOut",
-      onStart: () => controls.enabled = false,
-      onComplete: () => controls.enabled = true,
-      onUpdate: function () {
-        controls.update()
-      }
-    })
-    document.getElementById("canvasHolder").appendChild(renderer.domElement);
-    click.play()
-    whoosh.play()
-    window.setTimeout(() => { ding.play() }, 1000)
-    // window.setInterval(() => {
-    //   scene.traverseVisible(obj => {
-    //     if (obj.name == "rain") {
-    //       gsap.to(obj.position, {
-    //         y: 0,
-    //         duration: 2,
-    //         ease: "none",
-    //       })
-    //     }
-    //   })
-    //   scene.traverseVisible(obj => {
-    //     if (obj.name == "rain") {
-    //       const [y] = Array(1).fill().map(() => T.MathUtils.randFloatSpread(45))
-    //       obj.position.y = 40 + y
-    //     }
-    //   })
-    // }, 2005);
-  }
+  // scene.add(textMesh2)
+  // scene.add(textMesh3)
+  gsap.to(camera.position, {
+    x: 10,
+    y: 80,
+    z: 0,
+    duration: 2,
+    ease: "expo.inOut",
+    onStart: () => controls.enabled = false,
+    onComplete: () => controls.enabled = true,
+  },)
+  gsap.to(controls.target, {
+    x: 0,
+    y: 13,
+    z: 0,
+    duration: 2,
+    ease: "expo.inOut",
+    onStart: () => controls.enabled = false,
+    onComplete: () => controls.enabled = true,
+    onUpdate: function () {
+      controls.update()
+    }
+  })
+  document.getElementById("model1").appendChild(renderer.domElement);
+  // window.setInterval(() => {
+  //   scene.traverseVisible(obj => {
+  //     if (obj.name == "rain") {
+  //       gsap.to(obj.position, {
+  //         y: 0,
+  //         duration: 2,
+  //         ease: "none",
+  //       })
+  //     }
+  //   })
+  //   scene.traverseVisible(obj => {
+  //     if (obj.name == "rain") {
+  //       const [y] = Array(1).fill().map(() => T.MathUtils.randFloatSpread(45))
+  //       obj.position.y = 40 + y
+  //     }
+  //   })
+  // }, 2005);
 })
 
 let mixer, clock;
 window.addEventListener('resize', () => {
-  camera.aspect = window.innerWidth / window.innerHeight;
+  camera.aspect = (window.innerWidth) / (window.innerHeight);
   camera.updateProjectionMatrix();
-  renderer.setSize(window.innerWidth, window.innerHeight);
+  renderer.setSize((window.innerWidth), (window.innerHeight));
 });
 
-loader.load("Stand Design_GLTF.gltf", function (gltf) {
+loader.load("scene.gltf", function (gltf) {
   var mesh = gltf.scene;
-  mesh.scale.set(0.2, 0.2, 0.2);
-  console.log(mesh);
+  mesh.scale.set(450, 450, 450)
   // reflector.position.y = 1
-  mesh.position.set(0, 1, 0);
-  mesh.traverse(obj => {
-    if (obj.name == "polySurface3PIV") {
-      new TextureLoader().load("./images/1w.png", function (texture) {
-        texture.flipY = false;
-        obj.material = new T.MeshStandardMaterial({ map: texture });
-      })
-    }
-    if (obj.name == "MASH1_ReproMesh1Shape") {
-      obj.layers.toggle(BLOOM_SCENE)
-    }
-    if (obj.name == "polySurface281PIV") {
-      obj.layers.toggle(BLOOM_SCENE)
-    }
-  })
+  mesh.position.set(-15, 0, 0);
+  // mesh.traverse(obj => {
+  //   if (obj.name == "polySurface3PIV") {
+  //     new TextureLoader().load("./images/1w.png", function (texture) {
+  //       texture.flipY = false;
+  //       obj.material = new T.MeshStandardMaterial({ map: texture });
+  //     })
+  //   }
+  //   if (obj.name == "MASH1_ReproMesh1Shape") {
+  //     obj.layers.toggle(BLOOM_SCENE)
+  //   }
+  //   if (obj.name == "polySurface281PIV") {
+  //     obj.layers.toggle(BLOOM_SCENE)
+  //   }
+  // })
   mixer = new T.AnimationMixer(mesh);
   gltf.animations.forEach((clip) => {
     mixer.clipAction(clip).play();
@@ -189,7 +1066,6 @@ loader.load("Stand Design_GLTF.gltf", function (gltf) {
   clock = new T.Clock()
   animate()
   scene.add(mesh)
-  loading()
 })
 
 const geo = new T.BoxGeometry(0.4, 0.2, 0.4)
@@ -206,9 +1082,6 @@ scene.add(box2)
 const BLOOM_SCENE = 1;
 const bloomLayer = new T.Layers();
 bloomLayer.set(BLOOM_SCENE);
-
-textMesh.layers.toggle(BLOOM_SCENE)
-textMesh2.layers.toggle(BLOOM_SCENE)
 
 const renderScene = new RenderPass(scene, camera);
 const outputPass = new OutputPass();
@@ -241,9 +1114,10 @@ finalComposer.addPass(mixPass);
 finalComposer.addPass(outputPass);
 
 const controls = new OrbitControls(camera, renderer.domElement)
-controls.enablePan = true;
-controls.minPolarAngle = 0.5;
-controls.maxPolarAngle = 1.35;
+controls.enablePan = false;
+controls.enableRotate = false;
+// controls.minPolarAngle = 0.5;
+// controls.maxPolarAngle = 1.35;
 controls.minDistance = 0;
 controls.maxDistance = 280;
 controls.rotateSpeed = 0.5;
@@ -275,143 +1149,7 @@ function onMouseDown(event) {
   let intersections = raycaster.intersectObjects(scene.children, true);
   if (intersections.length > 0) {
     // intersections[0].object.layers.toggle(BLOOM_SCENE)
-    console.log(intersections[0].object);
-    if (intersections[0].object.name == "polySurface166PIV") {
-      click.play()
-      window.setTimeout(() => whoosh.play(), 2000)
-      gsap.to(camera.position, {
-        x: 100,
-        y: 22,
-        z: -33,
-        duration: 6,
-        ease: "expo.inOut",
-        onStart: () => controls.enabled = false,
-        onComplete: () => controls.enabled = true,
-      },)
-      gsap.to(controls.target, {
-        x: 0,
-        y: 13,
-        z: 0,
-        duration: 6,
-        ease: "expo.inOut",
-        onStart: () => controls.enabled = false,
-        onComplete: () => controls.enabled = true,
-        onUpdate: function () {
-          controls.update()
-        }
-      })
-    }
-    if (intersections[0].object.name == "polySurface161PIV") {
-      click.play()
-      window.setTimeout(() => whoosh.play(), 2000)
-      gsap.to(camera.position, {
-        x: 0,
-        y: 22,
-        z: 240,
-        duration: 6,
-        ease: "expo.inOut",
-        onStart: () => controls.enabled = false,
-        onComplete: () => controls.enabled = true,
-      },)
-      gsap.to(controls.target, {
-        x: 0,
-        y: 22,
-        z: 0,
-        duration: 6,
-        ease: "expo.inOut",
-        onStart: () => controls.enabled = false,
-        onComplete: () => controls.enabled = true,
-        onUpdate: function () {
-          controls.update()
-        }
-      })
-    }
-    if (intersections[0].object.name == "polySurface172PIV") {
-      click.play()
-      window.setTimeout(() => whoosh.play(), 2000)
-      gsap.to(camera.position, {
-        x: -1,
-        y: 19,
-        z: 7,
-        duration: 6,
-        ease: "expo.inOut",
-        onStart: () => controls.enabled = false,
-        onComplete: () => controls.enabled = true,
-      },)
-      gsap.to(controls.target, {
-        x: 2,
-        y: 10,
-        z: -4,
-        duration: 6,
-        ease: "expo.inOut",
-        onStart: () => controls.enabled = false,
-        onComplete: () => controls.enabled = true,
-        onUpdate: function () {
-          controls.update()
-        }
-      })
-    }
-    if (intersections[0].object.name == "polySurface179PIV") {
-      click.play()
-      window.setTimeout(() => whoosh.play(), 2000)
-      gsap.to(camera.position, {
-        x: 15,
-        y: 22.33,
-        z: 21.25,
-        duration: 6,
-        ease: "expo.inOut",
-        onStart: () => controls.enabled = false,
-        onComplete: () => controls.enabled = true,
-      },)
-      gsap.to(controls.target, {
-        x: 12.8,
-        y: 13.45,
-        z: 16.9,
-        duration: 6,
-        ease: "expo.inOut",
-        onStart: () => controls.enabled = false,
-        onComplete: () => controls.enabled = true,
-        onUpdate: function () {
-          controls.update()
-        }
-      })
-    }
-    if (intersections[0].object.name == "polySurface7PIV") {
-      document.getElementById("chat").classList.toggle("z-[45]")
-      document.getElementById("chat").classList.toggle("absolute")
-      document.getElementById("chat").classList.toggle("w-full")
-      document.getElementById("chat").classList.toggle("h-full")
-      document.getElementById("chat").classList.toggle("p-3")
-      document.getElementById("chat").classList.toggle("hidden")
-      document.getElementById("btn-close").classList.toggle("hidden")
-      intersections[0].object.layers.toggle(BLOOM_SCENE)
-    }
-    if (intersections[0].object.name == "next") {
-      scene.traverse(obj => {
-        if (obj.name == "polySurface3PIV") {
-          if (imgStateNum < 3) {
-            imgStateNum++;
-          }
-          new TextureLoader().load(`./images/${imgStateNum}w.png`, function (texture) {
-            texture.flipY = false;
-            obj.material = new T.MeshStandardMaterial({ map: texture });
-          })
-        }
-      })
-    }
-    if (intersections[0].object.name == "prev") {
-      scene.traverse(obj => {
-        if (obj.name == "polySurface3PIV") {
-          if (imgStateNum > 1) {
-            imgStateNum--;
-          }
-          new TextureLoader().load(`./images/${imgStateNum}w.png`, function (texture) {
-            texture.flipY = false;
-            obj.material = new T.MeshStandardMaterial({ map: texture });
-          })
-        }
-      })
-    }
+    console.log(intersections[0].object)
   }
 }
 
@@ -439,11 +1177,11 @@ function restoreMaterial(obj) {
   }
 }
 
-document.getElementById("loadingScreen").classList.add("z-[20]");
-document.getElementById("loadingScreen").innerHTML = `<img src="images/loading.gif" class="w-auto h-[200px]">`
-function loading() {
-  document.getElementById("loadingScreen").classList.add("hidden")
-}
+// document.getElementById("loadingScreen").classList.add("z-[20]");
+// document.getElementById("loadingScreen").innerHTML = `<img src="images/loading.gif" class="w-auto h-[200px]">`
+// function loading() {
+//   document.getElementById("loadingScreen").classList.add("hidden")
+// }
 
 // function addStars() {
 //   const geometry = new T.SphereGeometry(0.3, 0.3, 0.3);
@@ -467,7 +1205,7 @@ function loading() {
 //     setTimeout(() => {
 //       // gsap.to(obj.position, {
 //       //   y: 3,
-//       //   duration: 6,
+//       //   duration: 2,
 //       //   yoyo: true
 //       // })
 //     }, 100)
