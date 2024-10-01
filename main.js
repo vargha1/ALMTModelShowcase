@@ -1,6 +1,6 @@
 import * as T from "three"
 import gsap from "gsap";
-import { OrbitControls, FontLoader } from "three/examples/jsm/Addons.js";
+import { OrbitControls } from "three/examples/jsm/Addons.js";
 import { GLTFLoader } from "three/examples/jsm/Addons.js";
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
@@ -8,7 +8,6 @@ import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPa
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
 import { OutputPass } from "three/examples/jsm/postprocessing/OutputPass.js";
 import { DRACOLoader } from 'three/examples/jsm/Addons.js';
-import RajdHani from "./RajdHani.json"
 import Swiper from 'swiper';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -113,22 +112,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(40, 40, 40)
         mesh.name = "Sketchfab_Scene2"
-        // reflector.position.y = 1
         mesh.position.set(0, 30, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -137,7 +121,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       camera.position.set(350, -150, -90)
       gsap.to(camera.position, {
         x: 234,
@@ -170,22 +153,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(450, 450, 450)
         mesh.name = "Sketchfab_Scene"
-        // reflector.position.y = 1
         mesh.position.set(-15, 0, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -194,7 +162,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       camera.position.set(350, -150, -90)
       gsap.to(camera.position, {
         x: 10,
@@ -227,22 +194,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(250, 250, 250)
         mesh.name = "Sketchfab_Scene3"
-        // reflector.position.y = 1
         mesh.position.set(-15, 0, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -251,7 +203,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       gsap.to(camera.position, {
         x: 165,
         y: 0,
@@ -284,22 +235,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(40, 40, 40)
         mesh.name = "Sketchfab_Scene2"
-        // reflector.position.y = 1
         mesh.position.set(0, 30, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -308,7 +244,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       camera.position.set(350, -150, -90)
       gsap.to(camera.position, {
         x: 234,
@@ -342,22 +277,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(450, 450, 450)
         mesh.name = "Sketchfab_Scene4"
-        // reflector.position.y = 1
         mesh.position.set(-15, 0, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -366,7 +286,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       gsap.to(camera.position, {
         x: 135,
         y: 0,
@@ -399,22 +318,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(250, 250, 250)
         mesh.name = "Sketchfab_Scene3"
-        // reflector.position.y = 1
         mesh.position.set(-15, 0, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -423,7 +327,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       gsap.to(camera.position, {
         x: 165,
         y: 0,
@@ -456,22 +359,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(50, 50, 50)
         mesh.name = "Sketchfab_Scene5"
-        // reflector.position.y = 1
         mesh.position.set(-40, 0, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -480,7 +368,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       gsap.to(camera.position, {
         x: -40,
         y: -13,
@@ -514,22 +401,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(450, 450, 450)
         mesh.name = "Sketchfab_Scene4"
-        // reflector.position.y = 1
         mesh.position.set(-15, 0, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -538,7 +410,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       gsap.to(camera.position, {
         x: 135,
         y: 0,
@@ -572,22 +443,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(350, 350, 350)
         mesh.name = "Sketchfab_Scene6"
-        // reflector.position.y = 1
         mesh.position.set(-7, 0, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -596,7 +452,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       gsap.to(camera.position, {
         x: -8,
         y: 24,
@@ -631,22 +486,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(50, 50, 50)
         mesh.name = "Sketchfab_Scene5"
-        // reflector.position.y = 1
         mesh.position.set(-40, 0, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -655,7 +495,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       gsap.to(camera.position, {
         x: -40,
         y: -13,
@@ -690,22 +529,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(30, 30, 30)
         mesh.name = "Sketchfab_Scene7"
-        // reflector.position.y = 1
         mesh.position.set(-35, 0, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -714,7 +538,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       gsap.to(camera.position, {
         x: -108,
         y: 36,
@@ -750,22 +573,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(350, 350, 350)
         mesh.name = "Sketchfab_Scene6"
-        // reflector.position.y = 1
         mesh.position.set(-7, 0, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -774,7 +582,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       gsap.to(camera.position, {
         x: -8,
         y: 24,
@@ -810,22 +617,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(20, 20, 20)
         mesh.name = "Sketchfab_Scene8"
-        // reflector.position.y = 1
         mesh.position.set(-8, 0, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -834,7 +626,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       gsap.to(camera.position, {
         x: -8,
         y: 24,
@@ -869,22 +660,7 @@ swiper.on('slideChange', (swiper) => {
         var mesh = gltf.scene;
         mesh.scale.set(30, 30, 30)
         mesh.name = "Sketchfab_Scene7"
-        // reflector.position.y = 1
         mesh.position.set(-35, 0, 0);
-        // mesh.traverse(obj => {
-        //   if (obj.name == "polySurface3PIV") {
-        //     new TextureLoader().load("./images/1w.png", function (texture) {
-        //       texture.flipY = false;
-        //       obj.material = new T.MeshStandardMaterial({ map: texture });
-        //     })
-        //   }
-        //   if (obj.name == "MASH1_ReproMesh1Shape") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        //   if (obj.name == "polySurface281PIV") {
-        //     obj.layers.toggle(BLOOM_SCENE)
-        //   }
-        // })
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -893,7 +669,6 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      // gsap.globalTimeline.clear()
       gsap.to(camera.position, {
         x: -108,
         y: 36,
@@ -925,12 +700,106 @@ swiper.on('slideChange', (swiper) => {
   }
   document.getElementById("swiper-wrapper").children.item(activeIndex).appendChild(renderer.domElement)
 })
-
-window.handleDetails = index => {
+var modelIndex = 5;
+window.openDetails = index => {
+  modelIndex = index
   document.getElementById("swiper-wrapper").style.display = "none";
+  document.getElementById("textWrapper1").style.display = "none";
+  document.getElementById("textWrapper2").style.display = "none";
+  const wrapper = document.getElementById("wrapper")
+  const modelWrapper = document.getElementById("modelWrapper")
+  wrapper.classList.remove("-bottom-[200%]")
+  wrapper.classList.remove("top-full")
+  wrapper.classList.add("bottom-0")
+  wrapper.classList.add("top-[calc(100%-150px)]")
+  document.getElementById("swiper-wrapper").children.item(index - 1).children.item(0).remove()
+  const name = document.getElementById("name")
+  const desc = document.getElementById("desc")
+  const price = document.getElementById("price")
+  modelWrapper.appendChild(renderer.domElement)
+  controls.enableRotate = true
+  controls.enablePan = true
+  renderer.setSize(window.innerWidth, window.innerHeight - 52 - 150)
   if (index == 1) {
+    name.innerHTML = "Chocolate"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+  }
+  if (index == 2) {
+    name.innerHTML = "Black Chocolate"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+    scene.getObjectByName("Sketchfab_Scene2").scale.set(30, 30, 30)
+    scene.getObjectByName("Sketchfab_Scene2").position.set(-5, 15, 35)
+  }
+  if (index == 3) {
+    name.innerHTML = "Nestle"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+    scene.getObjectByName("Sketchfab_Scene3").scale.set(200, 200, 200)
+  }
+  if (index == 4) {
+    name.innerHTML = "Dark Chocolate"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+    // scene.getObjectByName("Sketchfab_Scene4").scale.set(0.75, 1, 1)
+  }
+  if (index == 5) {
+    name.innerHTML = "Juice"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+    // scene.getObjectByName("Sketchfab_Scene5").scale.set(0.75, 1, 1)
+  }
+  if (index == 6) {
+    name.innerHTML = "Mobile"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+    scene.getObjectByName("Sketchfab_Scene6").scale.set(350, 450, 350)
+  }
+  if (index == 7) {
+    name.innerHTML = "Suzuki"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+  }
+  if (index == 8) {
+    name.innerHTML = "Cat Food"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+  }
+}
+window.closeDetails = () => {
+  document.getElementById("swiper-wrapper").style.display = "";
+  document.getElementById("textWrapper1").style.display = "";
+  document.getElementById("textWrapper2").style.display = "";
+  const wrapper = document.getElementById("wrapper")
+  const modelWrapper = document.getElementById("modelWrapper")
+  wrapper.classList.add("-bottom-[200%]")
+  wrapper.classList.add("top-full")
+  wrapper.classList.remove("bottom-0")
+  wrapper.classList.remove("top-[calc(100%-150px)]")
+  modelWrapper.children.item(0).remove()
+  document.getElementById(`model${modelIndex}`).appendChild(renderer.domElement)
+  renderer.setSize(window.innerWidth, window.innerHeight)
+  camera.updateProjectionMatrix()
+  if (modelIndex == 1) {
+    scene.getObjectByName(`Sketchfab_Scene${modelIndex}`).scale.set(450, 450, 450)
+  }
+  if (modelIndex == 2) {
+    scene.getObjectByName(`Sketchfab_Scene${modelIndex}`).scale.set(40, 40, 40)
+    scene.getObjectByName("Sketchfab_Scene2").position.set(0, 30, 0)
 
   }
+  if (modelIndex == 3) {
+    scene.getObjectByName(`Sketchfab_Scene${modelIndex}`).scale.set(250, 250, 250)
+  }
+  if (modelIndex == 4) {
+    scene.getObjectByName(`Sketchfab_Scene${modelIndex}`).scale.set(450, 450, 450)
+  }
+  if (modelIndex == 6) {
+    scene.getObjectByName(`Sketchfab_Scene${modelIndex}`).scale.set(350, 350, 350)
+  }
+  controls.enableRotate = false
+  controls.enablePan = false
 }
 
 const scene = new T.Scene();
@@ -955,7 +824,6 @@ const renderer = new T.WebGLRenderer({ antialias: true, alpha: true });
 const draco = new DRACOLoader()
 draco.setDecoderPath('/examples/jsm/libs/draco/');
 loader.setDRACOLoader(draco)
-let imgStateNum = 1;
 
 Promise.all([
   loader.loadAsync('scene.gltf'),
@@ -968,7 +836,6 @@ Promise.all([
   loader8.loadAsync('scene.gltf'),
 ]).then((results) => {
   // here the models are returned in deterministic order
-  console.log(results);
 }).catch((err) => {
   console.log(err);
 });
@@ -976,10 +843,6 @@ Promise.all([
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
-// renderer.toneMapping = T.CineonToneMapping
-// renderer.toneMappingExposure = 1.5
-// renderer.outputColorSpace = T.SRGBColorSpace
-// renderer.domElement.classList.add("absolute")
 
 const darkMaterial = new T.MeshBasicMaterial({ color: 'black' });
 const materials = {};
@@ -998,25 +861,7 @@ elem.innerHTML = `
         Start</button>
     </div>
     `
-// document.getElementById("model1").appendChild(elem)
-
 document.addEventListener("DOMContentLoaded", () => {
-  // const textGeometry = new TextGeometry(event.target[0].value, {
-  //   font: font2,
-  //   size: 3,
-  //   depth: 0.6,
-  // });
-  // textGeometry.computeBoundingBox();
-  // const textMat2 = new T.MeshStandardMaterial({ color: 0xffff00 })
-  // const textMesh2 = new T.Mesh(textGeometry, textMat2)
-  // textMesh2.position.set(11, 14, 10)
-  // textMesh2.rotation.y = 1.55
-  // const textMesh3 = new T.Mesh(textGeometry, textMat2)
-  // textMesh3.position.set(4, 68, 10)
-  // textMesh3.rotation.y = 1.55
-
-  // scene.add(textMesh2)
-  // scene.add(textMesh3)
   gsap.to(camera.position, {
     x: 10,
     y: 80,
@@ -1039,23 +884,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   })
   document.getElementById("model1").appendChild(renderer.domElement);
-  // window.setInterval(() => {
-  //   scene.traverseVisible(obj => {
-  //     if (obj.name == "rain") {
-  //       gsap.to(obj.position, {
-  //         y: 0,
-  //         duration: 2,
-  //         ease: "none",
-  //       })
-  //     }
-  //   })
-  //   scene.traverseVisible(obj => {
-  //     if (obj.name == "rain") {
-  //       const [y] = Array(1).fill().map(() => T.MathUtils.randFloatSpread(45))
-  //       obj.position.y = 40 + y
-  //     }
-  //   })
-  // }, 2005);
 })
 
 let mixer, clock;
@@ -1070,20 +898,6 @@ loader.load("scene.gltf", function (gltf) {
   mesh.scale.set(450, 450, 450)
   // reflector.position.y = 1
   mesh.position.set(-15, 0, 0);
-  // mesh.traverse(obj => {
-  //   if (obj.name == "polySurface3PIV") {
-  //     new TextureLoader().load("./images/1w.png", function (texture) {
-  //       texture.flipY = false;
-  //       obj.material = new T.MeshStandardMaterial({ map: texture });
-  //     })
-  //   }
-  //   if (obj.name == "MASH1_ReproMesh1Shape") {
-  //     obj.layers.toggle(BLOOM_SCENE)
-  //   }
-  //   if (obj.name == "polySurface281PIV") {
-  //     obj.layers.toggle(BLOOM_SCENE)
-  //   }
-  // })
   mixer = new T.AnimationMixer(mesh);
   gltf.animations.forEach((clip) => {
     mixer.clipAction(clip).play();
@@ -1141,18 +955,11 @@ finalComposer.addPass(outputPass);
 const controls = new OrbitControls(camera, renderer.domElement)
 controls.enablePan = false;
 controls.enableRotate = false;
-// controls.minPolarAngle = 0.5;
-// controls.maxPolarAngle = 1.35;
+controls.enableZoom = false;
 controls.minDistance = 0;
 controls.maxDistance = 280;
 controls.rotateSpeed = 0.5;
 controls.update()
-// const spl = new T.SpotLight(0xe1ceb2, 8000000, 530, Math.PI / 2 + 1.2, 0.4)
-// spl.position.set(0, 450, 0)
-// spl.target.position.set(0, 2, 0)
-// scene.add(spl)
-// const splH = new T.SpotLightHelper(spl)
-// scene.add(splH)
 const dl = new T.DirectionalLight(0xffffff, 4.5)
 camera.add(dl)
 scene.add(camera)
@@ -1201,41 +1008,6 @@ function restoreMaterial(obj) {
     delete materials[obj.uuid];
   }
 }
-
-// document.getElementById("loadingScreen").classList.add("z-[20]");
-// document.getElementById("loadingScreen").innerHTML = `<img src="images/loading.gif" class="w-auto h-[200px]">`
-// function loading() {
-//   document.getElementById("loadingScreen").classList.add("hidden")
-// }
-
-// function addStars() {
-//   const geometry = new T.SphereGeometry(0.3, 0.3, 0.3);
-//   const mat = new T.MeshStandardMaterial({ color: 0xffffff })
-//   const starsMesh = new T.Mesh(geometry, mat)
-//   starsMesh.name = "star1";
-
-//   const [x, z] = Array(2).fill().map(() => T.MathUtils.randFloatSpread(450))
-//   const [y] = Array(1).fill().map(() => T.MathUtils.randFloatSpread(200))
-
-//   starsMesh.position.set(x, 200 + y, z);
-//   scene.add(starsMesh);
-// }
-
-// Array(1000).fill().forEach(addStars)
-
-// scene.traverseVisible(obj => {
-//   if (obj.name == "star1") {
-//     const [y] = Array(1).fill().map(() => T.MathUtils.randFloatSpread(200))
-//     obj.position.y = 200 + y
-//     setTimeout(() => {
-//       // gsap.to(obj.position, {
-//       //   y: 3,
-//       //   duration: 2,
-//       //   yoyo: true
-//       // })
-//     }, 100)
-//   }
-// })
 
 function animate() {
   requestAnimationFrame(animate);
