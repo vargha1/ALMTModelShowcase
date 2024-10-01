@@ -891,11 +891,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 let mixer, clock;
-window.addEventListener('resize', () => {
-  camera.aspect = (window.innerWidth) / (window.innerHeight);
-  camera.updateProjectionMatrix();
-  renderer.setSize((window.innerWidth), (window.innerHeight));
-});
+
 
 loader.load("scene.gltf", function (gltf) {
   var mesh = gltf.scene;
