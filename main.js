@@ -109,8 +109,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
-      loader.setPath("./blackChocolate/")
-      loader.load("scene.gltf", function (gltf) {
+      loader2.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(40, 40, 40)
         mesh.name = "Sketchfab_Scene2"
@@ -167,7 +166,6 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
-      loader.setPath("./chocolate/")
       loader.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(450, 450, 450)
@@ -225,8 +223,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
-      loader.setPath("./nestle/")
-      loader.load("scene.gltf", function (gltf) {
+      loader3.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(250, 250, 250)
         mesh.name = "Sketchfab_Scene3"
@@ -283,8 +280,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
-      loader.setPath("./blackChocolate/")
-      loader.load("scene.gltf", function (gltf) {
+      loader2.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(40, 40, 40)
         mesh.name = "Sketchfab_Scene2"
@@ -342,8 +338,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
-      loader.setPath("./darkChocolate/")
-      loader.load("scene.gltf", function (gltf) {
+      loader4.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(450, 450, 450)
         mesh.name = "Sketchfab_Scene4"
@@ -400,8 +395,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
-      loader.setPath("./nestle/")
-      loader.load("scene.gltf", function (gltf) {
+      loader3.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(250, 250, 250)
         mesh.name = "Sketchfab_Scene3"
@@ -458,8 +452,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
-      loader.setPath("./juice/")
-      loader.load("scene.gltf", function (gltf) {
+      loader5.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(50, 50, 50)
         mesh.name = "Sketchfab_Scene5"
@@ -517,8 +510,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
-      loader.setPath("./darkChocolate/")
-      loader.load("scene.gltf", function (gltf) {
+      loader4.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(450, 450, 450)
         mesh.name = "Sketchfab_Scene4"
@@ -576,8 +568,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
-      loader.setPath("./mobile/")
-      loader.load("scene.gltf", function (gltf) {
+      loader6.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(350, 350, 350)
         mesh.name = "Sketchfab_Scene6"
@@ -636,8 +627,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
-      loader.setPath("./juice/")
-      loader.load("scene.gltf", function (gltf) {
+      loader5.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(50, 50, 50)
         mesh.name = "Sketchfab_Scene5"
@@ -696,8 +686,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
-      loader.setPath("./suzuki/")
-      loader.load("scene.gltf", function (gltf) {
+      loader7.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(30, 30, 30)
         mesh.name = "Sketchfab_Scene7"
@@ -757,8 +746,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene7"))
-      loader.setPath("./mobile/")
-      loader.load("scene.gltf", function (gltf) {
+      loader6.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(350, 350, 350)
         mesh.name = "Sketchfab_Scene6"
@@ -818,8 +806,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene7"))
-      loader.setPath("./catFood/")
-      loader.load("scene.gltf", function (gltf) {
+      loader8.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(20, 20, 20)
         mesh.name = "Sketchfab_Scene8"
@@ -878,8 +865,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
-      loader.setPath("./suzuki/")
-      loader.load("scene.gltf", function (gltf) {
+      loader7.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
         mesh.scale.set(30, 30, 30)
         mesh.name = "Sketchfab_Scene7"
@@ -947,17 +933,23 @@ window.handleDetails = index => {
   }
 }
 
-const font2 = new FontLoader().parse(RajdHani)
 const scene = new T.Scene();
 const camera = new T.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000)
 const loader = new GLTFLoader(loadingManager)
-loader.setPath("./catFood/");
-loader.setPath("./juice/");
-loader.setPath("./nestle/");
-loader.setPath("./darkChocolate/");
-loader.setPath("./blackChocolate/");
-loader.setPath("./mobile/");
-loader.setPath("./suzuki/");
+const loader2 = new GLTFLoader(loadingManager)
+const loader3 = new GLTFLoader(loadingManager)
+const loader4 = new GLTFLoader(loadingManager)
+const loader5 = new GLTFLoader(loadingManager)
+const loader6 = new GLTFLoader(loadingManager)
+const loader7 = new GLTFLoader(loadingManager)
+const loader8 = new GLTFLoader(loadingManager)
+loader8.setPath("./catFood/");
+loader7.setPath("./suzuki/");
+loader6.setPath("./mobile/");
+loader5.setPath("./juice/");
+loader4.setPath("./darkChocolate/");
+loader3.setPath("./nestle/");
+loader2.setPath("./blackChocolate/");
 loader.setPath("./chocolate/");
 const renderer = new T.WebGLRenderer({ antialias: true, alpha: true });
 const draco = new DRACOLoader()
