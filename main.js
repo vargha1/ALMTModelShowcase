@@ -716,6 +716,7 @@ window.openDetails = index => {
   const name = document.getElementById("name")
   const desc = document.getElementById("desc")
   const price = document.getElementById("price")
+  const ar = document.getElementById("ar")
   modelWrapper.appendChild(renderer.domElement)
   controls.enableRotate = true
   controls.enablePan = true
@@ -725,6 +726,7 @@ window.openDetails = index => {
     name.innerHTML = "Chocolate"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
+    ar.innerHTML = "/chocolate/scene.gltf"
   }
   if (index == 2) {
     name.innerHTML = "Black Chocolate"

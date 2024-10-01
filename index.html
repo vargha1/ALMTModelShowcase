@@ -10,6 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite App</title>
+  <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
   <script type="vertex" id="vertexshader">
         varying vec2 vUv;
         void main() {
@@ -99,6 +100,11 @@
         <h3 id="name"></h3>
         <p id="desc"></p>
         <p id="price"></p>
+        <model-viewer id="ar" src="" ar shadow-intensity="1" camera-controls touch-action="pan-y">
+          <button slot="ar-button" id="ar-button">
+            View AR
+          </button>
+        </model-viewer>
       </div>
       <div class="flex md:hidden flex-col fixed top-[52px] bottom-[150px] left-0 right-0 transition-all duration-500"
         id="modelWrapper">
