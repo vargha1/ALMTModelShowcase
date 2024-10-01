@@ -719,6 +719,7 @@ window.openDetails = index => {
   modelWrapper.appendChild(renderer.domElement)
   controls.enableRotate = true
   controls.enablePan = true
+  controls.enableZoom = true
   renderer.setSize(window.innerWidth, window.innerHeight - 52 - 150)
   if (index == 1) {
     name.innerHTML = "Chocolate"
@@ -800,6 +801,7 @@ window.closeDetails = () => {
   }
   controls.enableRotate = false
   controls.enablePan = false
+  controls.enableZoom = false
 }
 
 const scene = new T.Scene();
