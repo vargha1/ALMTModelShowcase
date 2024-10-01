@@ -29,7 +29,7 @@ loadingManager.onProgress = (url, loaded, total) => {
 }
 
 loadingManager.onLoad = () => {
-  document.querySelector("#loadingScreen").classList.add("invisible")
+  document.getElementById("loadingScreen").style.display = "none";
 }
 
 const swiper = new Swiper('.swiper', {
