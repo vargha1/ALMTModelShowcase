@@ -957,6 +957,22 @@ draco.setDecoderPath('/examples/jsm/libs/draco/');
 loader.setDRACOLoader(draco)
 let imgStateNum = 1;
 
+Promise.all([
+  loader.loadAsync('scene.gltf'),
+  loader2.loadAsync('scene.gltf'),
+  loader3.loadAsync('scene.gltf'),
+  loader4.loadAsync('scene.gltf'),
+  loader5.loadAsync('scene.gltf'),
+  loader6.loadAsync('scene.gltf'),
+  loader7.loadAsync('scene.gltf'),
+  loader8.loadAsync('scene.gltf'),
+]).then((results) => {
+  // here the models are returned in deterministic order
+  console.log(results);
+}).catch((err) => {
+  console.log(err);
+});
+
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
