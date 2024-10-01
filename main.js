@@ -22,6 +22,15 @@ const text5 = document.querySelectorAll('.text5');
 const text6 = document.querySelectorAll('.text6');
 const text7 = document.querySelectorAll('.text7');
 const text8 = document.querySelectorAll('.text8');
+const loadingManager = new T.LoadingManager()
+
+loadingManager.onProgress = (url, loaded, total) => {
+  document.querySelector("progress").value = (loaded / total) * 100;
+}
+
+loadingManager.onLoad = () => {
+  document.querySelector("#loadingScreen").classList.add("invisible")
+}
 
 const swiper = new Swiper('.swiper', {
   pagination: {
@@ -934,14 +943,22 @@ swiper.on('slideChange', (swiper) => {
 window.handleDetails = index => {
   document.getElementById("swiper-wrapper").style.display = "none";
   if (index == 1) {
-    
+
   }
 }
 
 const font2 = new FontLoader().parse(RajdHani)
 const scene = new T.Scene();
 const camera = new T.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 10000)
-const loader = new GLTFLoader().setPath("./chocolate/");
+const loader = new GLTFLoader(loadingManager)
+loader.setPath("./catFood/");
+loader.setPath("./juice/");
+loader.setPath("./nestle/");
+loader.setPath("./darkChocolate/");
+loader.setPath("./blackChocolate/");
+loader.setPath("./mobile/");
+loader.setPath("./suzuki/");
+loader.setPath("./chocolate/");
 const renderer = new T.WebGLRenderer({ antialias: true, alpha: true });
 const draco = new DRACOLoader()
 draco.setDecoderPath('/examples/jsm/libs/draco/');
