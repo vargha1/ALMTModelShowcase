@@ -729,7 +729,7 @@ window.openDetails = index => {
     name.innerHTML = "Chocolate"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "./chocolate/scene.gltf")
+    ar.setAttribute("src", "./chocolate/chocolate_milka.glb")
   }
   if (index == 2) {
     name.innerHTML = "Black Chocolate"
