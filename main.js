@@ -729,13 +729,13 @@ window.openDetails = index => {
     name.innerHTML = "Chocolate"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "/chocolate/scene.gltf")
+    ar.setAttribute("src", "./chocolate/scene.gltf")
   }
   if (index == 2) {
     name.innerHTML = "Black Chocolate"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "/blackChocolate/scene.gltf")
+    ar.setAttribute("src", "./blackChocolate/scene.gltf")
     scene.getObjectByName("Sketchfab_Scene2").scale.set(30, 30, 30)
     scene.getObjectByName("Sketchfab_Scene2").position.set(-5, 15, 35)
   }
@@ -743,41 +743,41 @@ window.openDetails = index => {
     name.innerHTML = "Nestle"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "/nestle/scene.gltf")
+    ar.setAttribute("src", "./nestle/scene.gltf")
     scene.getObjectByName("Sketchfab_Scene3").scale.set(200, 200, 200)
   }
   if (index == 4) {
     name.innerHTML = "Dark Chocolate"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "/darkChocolate/scene.gltf")
+    ar.setAttribute("src", "./darkChocolate/scene.gltf")
     // scene.getObjectByName("Sketchfab_Scene4").scale.set(0.75, 1, 1)
   }
   if (index == 5) {
     name.innerHTML = "Juice"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "/juice/floor_Gltf.gltf")
+    ar.setAttribute("src", "./juice/floor_Gltf.gltf")
     // scene.getObjectByName("Sketchfab_Scene5").scale.set(0.75, 1, 1)
   }
   if (index == 6) {
     name.innerHTML = "Mobile"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "/mobile/scene.gltf")
+    ar.setAttribute("src", "./mobile/scene.gltf")
     scene.getObjectByName("Sketchfab_Scene6").scale.set(350, 450, 350)
   }
   if (index == 7) {
     name.innerHTML = "Suzuki"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "/suzuki/scene.gltf")
+    ar.setAttribute("src", "./suzuki/scene.gltf")
   }
   if (index == 8) {
     name.innerHTML = "Cat Food"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "/catFood/scene.gltf")
+    ar.setAttribute("src", "./catFood/scene.gltf")
   }
 }
 window.closeDetails = () => {
