@@ -794,26 +794,26 @@ window.closeDetails = () => {
   document.getElementById(`model${modelIndex}`).appendChild(renderer.domElement)
   renderer.setSize(window.innerWidth, window.innerHeight)
   camera.updateProjectionMatrix()
+  controls.enableRotate = false
+  controls.enablePan = false
+  controls.enableZoom = false
   if (modelIndex == 1) {
     scene.getObjectByName(`Sketchfab_Scene${modelIndex}`).scale.set(450, 450, 450)
   }
   if (modelIndex == 2) {
-    scene.getObjectByName(`Sketchfab_Scene${modelIndex}`).scale.set(40, 40, 40)
+    scene.getObjectByName(`Sketchfab_Scene2${modelIndex}`).scale.set(40, 40, 40)
     scene.getObjectByName("Sketchfab_Scene2").position.set(0, 30, 0)
 
   }
   if (modelIndex == 3) {
-    scene.getObjectByName(`Sketchfab_Scene${modelIndex}`).scale.set(250, 250, 250)
+    scene.getObjectByName(`Sketchfab_Scene3${modelIndex}`).scale.set(250, 250, 250)
   }
   if (modelIndex == 4) {
-    scene.getObjectByName(`Sketchfab_Scene${modelIndex}`).scale.set(450, 450, 450)
+    scene.getObjectByName(`Sketchfab_Scene4${modelIndex}`).scale.set(450, 450, 450)
   }
   if (modelIndex == 6) {
-    scene.getObjectByName(`Sketchfab_Scene${modelIndex}`).scale.set(350, 350, 350)
+    scene.getObjectByName(`Sketchfab_Scene6${modelIndex}`).scale.set(350, 350, 350)
   }
-  controls.enableRotate = false
-  controls.enablePan = false
-  controls.enableZoom = false
 }
 
 const scene = new T.Scene();
@@ -847,13 +847,8 @@ Promise.all([
   loader5.loadAsync('scene.gltf'),
   loader6.loadAsync('scene.gltf'),
   loader7.loadAsync('scene.gltf'),
-  loader8.loadAsync('scene.gltf'),
-]).then((results) => {
-  // here the models are returned in deterministic order
-}).catch((err) => {
-  console.log(err);
-});
-
+  loader8.loadAsync('scene.gltf')
+])
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.shadowMap.enabled = true;
@@ -975,36 +970,6 @@ camera.add(dl)
 scene.add(camera)
 scene.add(new T.AmbientLight(0xffffff, 4))
 
-const raycaster = new T.Raycaster()
-
-window.addEventListener('pointerdown', onMouseDown)
-
-function onMouseDown(event) {
-  camera.updateProjectionMatrix()
-  controls.update()
-  const coords = new T.Vector2(
-    (event.clientX / renderer.domElement.clientWidth) * 2 - 1,
-    -((event.clientY / renderer.domElement.clientHeight) * 2 - 1),
-  )
-  raycaster.setFromCamera(coords, camera)
-
-  let intersections = raycaster.intersectObjects(scene.children, true);
-  if (intersections.length > 0) {
-    // intersections[0].object.layers.toggle(BLOOM_SCENE)
-    console.log(intersections[0].object)
-  }
-}
-
-window.closeChat = () => {
-  document.getElementById("chat").classList.toggle("z-[45]")
-  document.getElementById("chat").classList.toggle("absolute")
-  document.getElementById("chat").classList.toggle("w-full")
-  document.getElementById("chat").classList.toggle("h-full")
-  document.getElementById("chat").classList.toggle("p-3")
-  document.getElementById("chat").classList.toggle("hidden")
-  document.getElementById("btn-close").classList.toggle("hidden")
-}
-
 function darkenNonBloomed(obj) {
   if (obj.isMesh && bloomLayer.test(obj.layers) === false) {
     materials[obj.uuid] = obj.material;
@@ -1022,15 +987,6 @@ function restoreMaterial(obj) {
 function animate() {
   requestAnimationFrame(animate);
   mixer.update(clock.getDelta());
-  // Define the rotation speed
-
-  // Calculate the rotation angles for each axis
-  // console.log(camera.position);
-
-
-  // Apply the rotation to the cube
-  // points.rotation.x = angle; // Rotate around X axis
-  // points.rotation.z = angle;
   // console.log(camera.position);
 
   controls.update();
@@ -1039,6 +995,4 @@ function animate() {
   bloomComposer.render();
   scene.traverse(restoreMaterial);
   finalComposer.render();
-  // renderer.render(scene, camera)
-  // camera.updateProjectionMatrix()
 }
