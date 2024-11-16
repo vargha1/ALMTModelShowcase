@@ -31,9 +31,6 @@ loadingManager.onLoad = () => {
   document.getElementById("loadingScreen").style.display = "none";
 }
 
-const modelViewerTransform = document.querySelector("model-viewer");
-modelViewerTransform.scale = `${0.01} ${0.01} ${0.01}`;
-
 const swiper = new Swiper('.swiper', {
   pagination: {
     el: '.swiper-pagination',
