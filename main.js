@@ -729,49 +729,49 @@ window.openDetails = index => {
     name.innerHTML = "Chocolate"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "chocolate/chocolate_milka.glb")
+    ar.setAttribute("src", "/chocolate/chocolate_milka.glb")
   }
   if (index == 2) {
     name.innerHTML = "Black Chocolate"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "blackChocolate/scene.gltf")
+    ar.setAttribute("src", "/blackChocolate/scene.gltf")
   }
   if (index == 3) {
     name.innerHTML = "Nestle"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "nestle/scene.gltf")
+    ar.setAttribute("src", "/nestle/scene.gltf")
   }
   if (index == 4) {
     name.innerHTML = "Dark Chocolate"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "darkChocolate/scene.gltf")
+    ar.setAttribute("src", "/darkChocolate/scene.gltf")
   }
   if (index == 5) {
     name.innerHTML = "Juice"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "juice/floor_Gltf.gltf")
+    ar.setAttribute("src", "/juice/floor_Gltf.gltf")
   }
   if (index == 6) {
     name.innerHTML = "Mobile"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "mobile/scene.gltf")
+    ar.setAttribute("src", "/mobile/scene.gltf")
   }
   if (index == 7) {
     name.innerHTML = "Suzuki"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "suzuki/scene.gltf")
+    ar.setAttribute("src", "/suzuki/scene.gltf")
   }
   if (index == 8) {
     name.innerHTML = "Cat Food"
     desc.innerHTML = "description"
     price.innerHTML = "100$"
-    ar.setAttribute("src", "catFood/scene.gltf")
+    ar.setAttribute("src", "/catFood/scene.gltf")
   }
 }
 window.closeDetails = () => {
