@@ -719,7 +719,7 @@ window.openDetails = index => {
   const name = document.getElementById("name")
   const desc = document.getElementById("desc")
   const price = document.getElementById("price")
-  const ar = document.getElementById("#ar")
+  const ar = document.getElementById("model-viewer")
   modelWrapper.appendChild(renderer.domElement)
   controls.enableRotate = true
   controls.enablePan = true
