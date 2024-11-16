@@ -8,6 +8,15 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="preload" as="fetch" href="/chocolate/scene.gltf" type="model/gltf-binary" crossorigin="anonymous">
+  <link rel="preload" as="fetch" href="/blackChocolate/scene.gltf" type="model/gltf-binary" crossorigin="anonymous">
+  <link rel="preload" as="fetch" href="/darkChocolate/scene.gltf" type="model/gltf-binary" crossorigin="anonymous">
+  <link rel="preload" as="fetch" href="/juice/scene.gltf" type="model/gltf-binary" crossorigin="anonymous">
+  <link rel="preload" as="fetch" href="/mobile/scene.gltf" type="model/gltf-binary" crossorigin="anonymous">
+  <link rel="preload" as="fetch" href="/nestle/scene.gltf" type="model/gltf-binary" crossorigin="anonymous">
+  <link rel="preload" as="fetch" href="/suzuki/scene.gltf" type="model/gltf-binary" crossorigin="anonymous">
+  <link rel="preload" as="fetch" href="/chocolateIceCream/scene.gltf" type="model/gltf-binary" crossorigin="anonymous">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vite App</title>
   <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
@@ -92,8 +101,8 @@
         <h3 id="name"></h3>
         <p id="desc"></p>
         <p id="price"></p>
-        <model-viewer id="ar" src="/chocolate/chocolate_milka.glb" ar modes="scene-viewer quick-look webxr" touch-action="pan-y" reveal="manual" auto-rotate
-          shadow-intensity="1" camera-controls
+        <model-viewer id="ar" src="/chocolate/chocolate_milka.glb" ar modes="scene-viewer quick-look webxr"
+          touch-action="pan-y" reveal="manual" auto-rotate shadow-intensity="1" camera-controls
           camera-position="0 50 0">
           <button slot="ar-button" id="ar-button">
             View AR 360&deg;
