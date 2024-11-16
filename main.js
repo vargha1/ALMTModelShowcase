@@ -719,12 +719,13 @@ window.openDetails = index => {
   const name = document.getElementById("name")
   const desc = document.getElementById("desc")
   const price = document.getElementById("price")
-  const ar = document.getElementById("model-viewer")
+  const ar = document.getElementById("#ar")
   modelWrapper.appendChild(renderer.domElement)
   controls.enableRotate = true
   controls.enablePan = true
   controls.enableZoom = true
   // renderer.setSize(window.innerWidth, window.innerHeight - 52 - 150)
+  console.log(ar)
   if (index == 1) {
     name.innerHTML = "Chocolate"
     desc.innerHTML = "description"
