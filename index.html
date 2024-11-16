@@ -65,25 +65,17 @@
       </div>
       <div class="flex flex-col absolute h-[32px] z-20 left-1/2 bottom-12 -translate-x-1/2 overflow-hidden text-center"
         id="textWrapper2">
-        <button class="text-2xl relative text-red-600 text1" id="detail1" onclick="openDetails(1)">View
-          Detail</button>
-        <button class="text-2xl relative text-red-600 text2" id="detail2" onclick="openDetails(2)">View
-          Detail</button>
-        <button class="text-2xl relative text-red-600 text3" id="detail3" onclick="openDetails(3)">View
-          Detail</button>
-        <button class="text-2xl relative text-red-600 text4" id="detail4" onclick="openDetails(4)">View
-          Detail</button>
-        <button class="text-2xl relative text-red-600 text5" id="detail5" onclick="openDetails(5)">View
-          Detail</button>
-        <button class="text-2xl relative text-red-600 text6" id="detail6" onclick="openDetails(6)">View
-          Detail</button>
-        <button class="text-2xl relative text-red-600 text7" id="detail7" onclick="openDetails(7)">View
-          Detail</button>
-        <button class="text-2xl relative text-red-600 text8" id="detail8" onclick="openDetails(8)">View
-          Detail</button>
+        <button class="text-2xl relative text-red-600 text1" id="detail1" onclick="openDetails(1)">3D</button>
+        <button class="text-2xl relative text-red-600 text2" id="detail2" onclick="openDetails(2)">3D</button>
+        <button class="text-2xl relative text-red-600 text3" id="detail3" onclick="openDetails(3)">3D</button>
+        <button class="text-2xl relative text-red-600 text4" id="detail4" onclick="openDetails(4)">3D</button>
+        <button class="text-2xl relative text-red-600 text5" id="detail5" onclick="openDetails(5)">3D</button>
+        <button class="text-2xl relative text-red-600 text6" id="detail6" onclick="openDetails(6)">3D</button>
+        <button class="text-2xl relative text-red-600 text7" id="detail7" onclick="openDetails(7)">3D</button>
+        <button class="text-2xl relative text-red-600 text8" id="detail8" onclick="openDetails(8)">3D</button>
       </div>
       <div
-        class="flex items-center w-full md:hidden flex-col fixed -bottom-[200%] top-full left-0 right-0 bg-gray-700 transition-all duration-500"
+        class="flex items-center w-full md:hidden flex-col fixed -bottom-[200%] top-full left-0 right-0 bg-gray-700 z-20 transition-all duration-500"
         id="wrapper">
         <div class="flex rotate-180 transition-all duration-500" onclick="closeDetails()">
           <svg width="42px" height="42px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"
@@ -103,7 +95,7 @@
         <model-viewer id="ar" modes="scene-viewer quick-look webxr" reveal="manual" src="" ar shadow-intensity="1"
           camera-controls touch-action="pan-y">
           <button slot="ar-button" id="ar-button">
-            View AR
+            View AR 360&deg;
           </button>
         </model-viewer>
       </div>
