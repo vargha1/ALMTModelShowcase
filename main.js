@@ -727,49 +727,41 @@ window.openDetails = index => {
       name.innerHTML = "Chocolate"
       desc.innerHTML = "description"
       price.innerHTML = "100$"
-      window.open("https://vargha1.github.io/ar/")
     }
     if (index == 2) {
       name.innerHTML = "Black Chocolate"
       desc.innerHTML = "description"
       price.innerHTML = "100$"
-      window.open("https://vargha1.github.io/ar/")
     }
     if (index == 3) {
       name.innerHTML = "Nestle"
       desc.innerHTML = "description"
       price.innerHTML = "100$"
-      window.open("https://vargha1.github.io/ar/")
     }
     if (index == 4) {
       name.innerHTML = "Dark Chocolate"
       desc.innerHTML = "description"
       price.innerHTML = "100$"
-      window.open("https://vargha1.github.io/ar/")
     }
     if (index == 5) {
       name.innerHTML = "Juice"
       desc.innerHTML = "description"
       price.innerHTML = "100$"
-      window.open("https://vargha1.github.io/ar/")
     }
     if (index == 6) {
       name.innerHTML = "Mobile"
       desc.innerHTML = "description"
       price.innerHTML = "100$"
-      window.open("https://vargha1.github.io/ar/")
     }
     if (index == 7) {
       name.innerHTML = "Suzuki"
       desc.innerHTML = "description"
       price.innerHTML = "100$"
-      window.open("https://vargha1.github.io/ar/")
     }
     if (index == 8) {
       name.innerHTML = "Cat Food"
       desc.innerHTML = "description"
       price.innerHTML = "100$"
-      window.open("https://vargha1.github.io/ar/")
     }
 }
 window.closeDetails = () => {
