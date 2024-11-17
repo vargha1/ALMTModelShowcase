@@ -37,6 +37,45 @@ const swiper = new Swiper('.swiper', {
   }
 });
 
+function removeObjectAndDispose(object) {
+  if (!object) return;
+
+  // Traverse and dispose
+  object.traverse(obj => {
+    if (obj.isMesh) {
+      // Dispose geometry
+      if (obj.geometry) {
+        obj.geometry.dispose();
+      }
+      // Dispose material
+      if (obj.material) {
+        // Handle materials array
+        if (Array.isArray(obj.material)) {
+          obj.material.forEach(mat => {
+            if (mat.map) mat.map.dispose(); // Dispose texture
+            if (mat.lightMap) mat.lightMap.dispose();
+            if (mat.bumpMap) mat.bumpMap.dispose();
+            if (mat.normalMap) mat.normalMap.dispose();
+            if (mat.specularMap) mat.specularMap.dispose();
+            if (mat.envMap) mat.envMap.dispose();
+            if (mat.alphaMap) mat.alphaMap.dispose();
+            mat.dispose(); // Dispose material
+          });
+        } else {
+          if (obj.material.map) obj.material.map.dispose(); // Dispose texture
+          if (obj.material.lightMap) obj.material.lightMap.dispose();
+          if (obj.material.bumpMap) obj.material.bumpMap.dispose();
+          if (obj.material.normalMap) obj.material.normalMap.dispose();
+          if (obj.material.specularMap) obj.material.specularMap.dispose();
+          if (obj.material.envMap) obj.material.envMap.dispose();
+          if (obj.material.alphaMap) obj.material.alphaMap.dispose();
+          obj.material.dispose(); // Dispose material
+        }
+      }
+    }
+  });
+}
+
 swiper.on('progress', (swiper) => {
   const totalProgress = Math.abs(swiper.progress) * 100;
 
@@ -103,6 +142,7 @@ swiper.on('slideChange', (swiper) => {
     })
   })
   scene.traverse(obj => {
+    removeObjectAndDispose(obj)
     if (obj.name == "Sketchfab_Scene") {
       scene.remove(obj)
       scene.remove(scene.getObjectByName("Sketchfab_Scene"))
