@@ -702,67 +702,67 @@ swiper.on('slideChange', (swiper) => {
 })
 var modelIndex = 5;
 window.openDetails = index => {
-    modelIndex = index
-    document.getElementById("swiper-wrapper").style.display = "none";
-    document.getElementById("textWrapper1").style.display = "none";
-    document.getElementById("textWrapper2").style.display = "none";
-    const wrapper = document.getElementById("wrapper")
-    const modelWrapper = document.getElementById("modelWrapper")
-    wrapper.classList.remove("-bottom-[200%]")
-    wrapper.classList.remove("top-full")
-    wrapper.classList.add("bottom-0")
-    wrapper.classList.add("top-[calc(100%-150px)]")
-    document.getElementById("swiper-wrapper").children.item(index - 1).children.item(0).remove()
-    const name = document.getElementById("name")
-    const desc = document.getElementById("desc")
-    const price = document.getElementById("price")
-    const ar = document.getElementById("ar")
-    modelWrapper.appendChild(renderer.domElement)
-    controls.enableRotate = true
-    controls.enablePan = true
-    controls.enableZoom = true
-    // renderer.setSize(window.innerWidth, window.innerHeight - 52 - 150)
-    console.log(ar)
-    if (index == 1) {
-      name.innerHTML = "Chocolate"
-      desc.innerHTML = "description"
-      price.innerHTML = "100$"
-    }
-    if (index == 2) {
-      name.innerHTML = "Black Chocolate"
-      desc.innerHTML = "description"
-      price.innerHTML = "100$"
-    }
-    if (index == 3) {
-      name.innerHTML = "Nestle"
-      desc.innerHTML = "description"
-      price.innerHTML = "100$"
-    }
-    if (index == 4) {
-      name.innerHTML = "Dark Chocolate"
-      desc.innerHTML = "description"
-      price.innerHTML = "100$"
-    }
-    if (index == 5) {
-      name.innerHTML = "Juice"
-      desc.innerHTML = "description"
-      price.innerHTML = "100$"
-    }
-    if (index == 6) {
-      name.innerHTML = "Mobile"
-      desc.innerHTML = "description"
-      price.innerHTML = "100$"
-    }
-    if (index == 7) {
-      name.innerHTML = "Suzuki"
-      desc.innerHTML = "description"
-      price.innerHTML = "100$"
-    }
-    if (index == 8) {
-      name.innerHTML = "Cat Food"
-      desc.innerHTML = "description"
-      price.innerHTML = "100$"
-    }
+  modelIndex = index
+  document.getElementById("swiper-wrapper").style.display = "none";
+  document.getElementById("textWrapper1").style.display = "none";
+  document.getElementById("textWrapper2").style.display = "none";
+  const wrapper = document.getElementById("wrapper")
+  const modelWrapper = document.getElementById("modelWrapper")
+  wrapper.classList.remove("-bottom-[200%]")
+  wrapper.classList.remove("top-full")
+  wrapper.classList.add("bottom-0")
+  wrapper.classList.add("top-[calc(100%-150px)]")
+  document.getElementById("swiper-wrapper").children.item(index - 1).children.item(0).remove()
+  const name = document.getElementById("name")
+  const desc = document.getElementById("desc")
+  const price = document.getElementById("price")
+  const ar = document.getElementById("AR")
+  modelWrapper.appendChild(renderer.domElement)
+  controls.enableRotate = true
+  controls.enablePan = true
+  controls.enableZoom = true
+  // renderer.setSize(window.innerWidth, window.innerHeight - 52 - 150)
+  ar.href = ar.href.slice(0, -1) + index
+  if (index == 1) {
+    name.innerHTML = "Chocolate"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+  }
+  if (index == 2) {
+    name.innerHTML = "Black Chocolate"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+  }
+  if (index == 3) {
+    name.innerHTML = "Nestle"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+  }
+  if (index == 4) {
+    name.innerHTML = "Dark Chocolate"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+  }
+  if (index == 5) {
+    name.innerHTML = "Juice"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+  }
+  if (index == 6) {
+    name.innerHTML = "Mobile"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+  }
+  if (index == 7) {
+    name.innerHTML = "Suzuki"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+  }
+  if (index == 8) {
+    name.innerHTML = "Cat Food"
+    desc.innerHTML = "description"
+    price.innerHTML = "100$"
+  }
 }
 window.closeDetails = () => {
   document.getElementById("swiper-wrapper").style.display = "";
