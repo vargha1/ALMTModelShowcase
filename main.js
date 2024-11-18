@@ -751,57 +751,50 @@ window.openDetails = index => {
   wrapper.classList.remove("-bottom-[200%]")
   wrapper.classList.remove("top-full")
   wrapper.classList.add("bottom-0")
-  wrapper.classList.add("top-[calc(100%-150px)]")
+  wrapper.classList.add("top-[calc(100%-95px)]")
   document.getElementById("swiper-wrapper").children.item(index - 1).children.item(0).remove()
   const name = document.getElementById("name")
   const desc = document.getElementById("desc")
-  const price = document.getElementById("price")
-  const ar = document.getElementById("AR")
+  // const ar = document.getElementById("AR")
   modelWrapper.appendChild(renderer.domElement)
   controls.enableRotate = true
   controls.enablePan = true
   controls.enableZoom = true
+  controls.autoRotate = true
+  controls.autoRotateSpeed = 1.5
   // renderer.setSize(window.innerWidth, window.innerHeight - 52 - 150)
-  ar.href = ar.href.slice(0, -1) + index
+  // ar.href = ar.href.slice(0, -1) + index
   if (index == 1) {
     name.innerHTML = "Chocolate"
     desc.innerHTML = "description"
-    price.innerHTML = "100$"
   }
   if (index == 2) {
     name.innerHTML = "Black Chocolate"
     desc.innerHTML = "description"
-    price.innerHTML = "100$"
   }
   if (index == 3) {
     name.innerHTML = "Nestle"
     desc.innerHTML = "description"
-    price.innerHTML = "100$"
   }
   if (index == 4) {
     name.innerHTML = "Dark Chocolate"
     desc.innerHTML = "description"
-    price.innerHTML = "100$"
   }
   if (index == 5) {
     name.innerHTML = "Juice"
     desc.innerHTML = "description"
-    price.innerHTML = "100$"
   }
   if (index == 6) {
     name.innerHTML = "Mobile"
     desc.innerHTML = "description"
-    price.innerHTML = "100$"
   }
   if (index == 7) {
     name.innerHTML = "Suzuki"
     desc.innerHTML = "description"
-    price.innerHTML = "100$"
   }
   if (index == 8) {
     name.innerHTML = "Cat Food"
     desc.innerHTML = "description"
-    price.innerHTML = "100$"
   }
 }
 window.closeDetails = () => {
@@ -813,7 +806,7 @@ window.closeDetails = () => {
   wrapper.classList.add("-bottom-[200%]")
   wrapper.classList.add("top-full")
   wrapper.classList.remove("bottom-0")
-  wrapper.classList.remove("top-[calc(100%-150px)]")
+  wrapper.classList.remove("top-[calc(100%-95px)]")
   modelWrapper.children.item(0).remove()
   document.getElementById(`model${modelIndex}`).appendChild(renderer.domElement)
   renderer.setSize(window.innerWidth, window.innerHeight)
@@ -821,6 +814,191 @@ window.closeDetails = () => {
   controls.enableRotate = false
   controls.enablePan = false
   controls.enableZoom = false
+  controls.autoRotate = false
+  if (modelIndex == 1) {
+    gsap.to(camera.position, {
+      x: 10,
+      y: 80,
+      z: 0,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+    },)
+    gsap.to(controls.target, {
+      x: 0,
+      y: 13,
+      z: 0,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+      onUpdate: function () {
+        controls.update()
+      }
+    })
+  }
+  if (modelIndex == 2) {
+    gsap.to(camera.position, {
+      x: 234,
+      y: -143,
+      z: -24.5,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+    },)
+    gsap.to(controls.target, {
+      x: 106,
+      y: -133,
+      z: 47,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+      onUpdate: function () {
+        controls.update()
+      }
+    })
+  }
+  if (modelIndex == 3) {
+    gsap.to(camera.position, {
+      x: 165,
+      y: 0,
+      z: 0,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+    },)
+    gsap.to(controls.target, {
+      x: 0,
+      y: 0,
+      z: 0,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+      onUpdate: function () {
+        controls.update()
+      }
+    })
+  }
+  if (modelIndex == 4) {
+    gsap.to(camera.position, {
+      x: 135,
+      y: 0,
+      z: 0,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+    },)
+    gsap.to(controls.target, {
+      x: 0,
+      y: 0,
+      z: 0,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+      onUpdate: function () {
+        controls.update()
+      }
+    })
+  }
+  if (modelIndex == 5) {
+    gsap.to(camera.position, {
+      x: -40,
+      y: -13,
+      z: 100,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+    },)
+    gsap.to(controls.target, {
+      x: -40,
+      y: -13,
+      z: 0,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+      onUpdate: function () {
+        controls.update()
+      }
+    })
+  }
+  if (modelIndex == 6) {
+    gsap.to(camera.position, {
+      x: -8,
+      y: 24,
+      z: 92,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+    },)
+    gsap.to(controls.target, {
+      x: -8,
+      y: 24,
+      z: 0,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+      onUpdate: function () {
+        controls.update()
+      }
+    })
+  }
+  if (modelIndex == 7) {
+    gsap.to(camera.position, {
+      x: -108,
+      y: 36,
+      z: 52,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+    },)
+    gsap.to(controls.target, {
+      x: -69,
+      y: 24,
+      z: 24,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+      onUpdate: function () {
+        controls.update()
+      }
+    })
+  }
+  if (modelIndex == 8) {
+    gsap.to(camera.position, {
+      x: -8,
+      y: 24,
+      z: 92,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+    },)
+    gsap.to(controls.target, {
+      x: -8,
+      y: 24,
+      z: 0,
+      duration: 2,
+      ease: "expo.inOut",
+      onStart: () => controls.enabled = false,
+      onComplete: () => controls.enabled = true,
+      onUpdate: function () {
+        controls.update()
+      }
+    })
+  }
 }
 
 const scene = new T.Scene();
