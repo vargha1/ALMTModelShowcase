@@ -189,11 +189,11 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
-      loader.load("scene.gltf", function (gltf) {
+      loader.load("snacktime_chocolate.glb", function (gltf) {
         var mesh = gltf.scene;
-        mesh.scale.set(450, 450, 450)
+        mesh.scale.set(0.5, 0.5, 0.5)
         mesh.name = "Sketchfab_Scene"
-        mesh.position.set(-15, 0, 0);
+        mesh.position.set(-15, 10, 0);
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -202,19 +202,18 @@ swiper.on('slideChange', (swiper) => {
         animate()
         scene.add(mesh)
       })
-      camera.position.set(350, -150, -90)
       gsap.to(camera.position, {
-        x: 10,
-        y: 80,
-        z: 0,
+        x: -18,
+        y: 27,
+        z: 55,
         duration: 2,
         ease: "expo.inOut",
         onStart: () => controls.enabled = false,
         onComplete: () => controls.enabled = true,
       },)
       gsap.to(controls.target, {
-        x: 0,
-        y: 13,
+        x: -18,
+        y: 27,
         z: 0,
         duration: 2,
         ease: "expo.inOut",
@@ -655,7 +654,7 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene7"))
       loader8.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
-        mesh.scale.set(20, 20, 20)
+        mesh.scale.set(0.5, 0.5, 0.5)
         mesh.name = "Sketchfab_Scene8"
         mesh.position.set(-8, 0, 0);
         mixer = new T.AnimationMixer(mesh);
@@ -1025,7 +1024,7 @@ draco.setDecoderPath('/examples/jsm/libs/draco/');
 loader.setDRACOLoader(draco)
 
 Promise.all([
-  loader.loadAsync('scene.gltf'),
+  loader.loadAsync('snacktime_chocolate.glb'),
   loader2.loadAsync('scene.gltf'),
   loader3.loadAsync('scene.gltf'),
   loader4.loadAsync('scene.gltf'),
@@ -1057,17 +1056,17 @@ elem.innerHTML = `
     `
 document.addEventListener("DOMContentLoaded", () => {
   gsap.to(camera.position, {
-    x: 10,
-    y: 80,
-    z: 0,
+    x: -18,
+    y: 27,
+    z: 55,
     duration: 2,
     ease: "expo.inOut",
     onStart: () => controls.enabled = false,
     onComplete: () => controls.enabled = true,
   },)
   gsap.to(controls.target, {
-    x: 0,
-    y: 13,
+    x:-18,
+    y: 27,
     z: 0,
     duration: 2,
     ease: "expo.inOut",
@@ -1083,11 +1082,11 @@ document.addEventListener("DOMContentLoaded", () => {
 let mixer, clock;
 
 
-loader.load("scene.gltf", function (gltf) {
+loader.load("snacktime_chocolate.glb", function (gltf) {
   var mesh = gltf.scene;
-  mesh.scale.set(450, 450, 450)
+  mesh.scale.set(0.5, 0.5, 0.5)
   // reflector.position.y = 1
-  mesh.position.set(-15, 0, 0);
+  mesh.position.set(-15, 10, 0);
   mixer = new T.AnimationMixer(mesh);
   gltf.animations.forEach((clip) => {
     mixer.clipAction(clip).play();
@@ -1172,7 +1171,7 @@ function restoreMaterial(obj) {
 function animate() {
   requestAnimationFrame(animate);
   mixer.update(clock.getDelta());
-  // console.log(camera.position);
+  console.log(camera.position);
 
   controls.update();
 
