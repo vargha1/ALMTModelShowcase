@@ -814,6 +814,9 @@ window.closeDetails = () => {
   controls.enablePan = false
   controls.enableZoom = false
   controls.autoRotate = false
+  setTimeout(() => {
+    controls.autoRotate = false
+  }, 7000)
   if (modelIndex == 1) {
     gsap.to(camera.position, {
       x: -18,
