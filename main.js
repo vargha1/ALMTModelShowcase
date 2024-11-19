@@ -76,70 +76,29 @@ function removeObjectAndDispose(object) {
   });
 }
 
-swiper.on('progress', (swiper) => {
-  const totalProgress = Math.abs(swiper.progress) * 100;
+// swiper.on('progress', (swiper) => {
+//   const totalProgress = Math.abs(swiper.progress) * 100;
 
-  text1.forEach(text => { text.style.top = -totalProgress * 2.1 + 'px'; })
-  text2.forEach(text => { text.style.top = -totalProgress * 2.5 + 'px'; })
-  text3.forEach(text => { text.style.top = -totalProgress * 2.4 + 'px'; })
-  text4.forEach(text => { text.style.top = -totalProgress * 2.3 + 'px'; })
-  text5.forEach(text => { text.style.top = -totalProgress * 2.5 + 'px'; })
-  text6.forEach(text => { text.style.top = -totalProgress * 2.2 + 'px'; })
-  text7.forEach(text => { text.style.top = -totalProgress * 2.2 + 'px'; })
-  text8.forEach(text => { text.style.top = -totalProgress * 2.2 + 'px'; })
-});
+//   text1.forEach(text => { text.style.top = -totalProgress * 2.1 + 'px'; })
+//   text2.forEach(text => { text.style.top = -totalProgress * 2.5 + 'px'; })
+//   text3.forEach(text => { text.style.top = -totalProgress * 2.4 + 'px'; })
+//   text4.forEach(text => { text.style.top = -totalProgress * 2.3 + 'px'; })
+//   text5.forEach(text => { text.style.top = -totalProgress * 2.5 + 'px'; })
+//   text6.forEach(text => { text.style.top = -totalProgress * 2.2 + 'px'; })
+//   text7.forEach(text => { text.style.top = -totalProgress * 2.2 + 'px'; })
+//   text8.forEach(text => { text.style.top = -totalProgress * 2.2 + 'px'; })
+// });
 
 swiper.on('slideChange', (swiper) => {
   const activeIndex = swiper.activeIndex;
-  const totalProgress = Math.abs(swiper.progress) * 100;
   console.log(activeIndex);
-  text1.forEach(text => {
-    gsap.to(text.style, {
-      top: -totalProgress * 2.1 + 'px',
-      duration: 0.6
+  for (let i = 1; i <= 8; i++) {
+    document.querySelectorAll(`.text${i}`).forEach(item => {
+      item.classList.add("hidden");
     })
-  })
-  text2.forEach(text => {
-    gsap.to(text.style, {
-      top: -totalProgress * 2.5 + 'px',
-      duration: 0.6
-    })
-  })
-  text3.forEach(text => {
-    gsap.to(text.style, {
-      top: -totalProgress * 2.4 + 'px',
-      duration: 0.6
-    })
-  })
-  text4.forEach(text => {
-    gsap.to(text.style, {
-      top: -totalProgress * 2.3 + 'px',
-      duration: 0.6
-    })
-  })
-  text5.forEach(text => {
-    gsap.to(text.style, {
-      top: -totalProgress * 2.25 + 'px',
-      duration: 0.6
-    })
-  })
-  text6.forEach(text => {
-    gsap.to(text.style, {
-      top: -totalProgress * 2.2 + 'px',
-      duration: 0.6
-    })
-  })
-  text7.forEach(text => {
-    gsap.to(text.style, {
-      top: -totalProgress * 2.2 + 'px',
-      duration: 0.6
-    })
-  })
-  text8.forEach(text => {
-    gsap.to(text.style, {
-      top: -totalProgress * 2.2 + 'px',
-      duration: 0.6
-    })
+  }
+  document.querySelectorAll(`.text${activeIndex + 1}`).forEach(item => {
+    item.classList.remove("hidden")
   })
   scene.traverse(obj => {
     removeObjectAndDispose(obj)
@@ -652,31 +611,37 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene7"))
-      loader8.load("scene.gltf", function (gltf) {
+      let box, center;
+      loader8.load("chocolate_truffle.glb", function (gltf) {
         var mesh = gltf.scene;
-        mesh.scale.set(0.5, 0.5, 0.5)
+        mesh.scale.set(40, 40, 40)
         mesh.name = "Sketchfab_Scene8"
-        mesh.position.set(-8, 0, 0);
+        mesh.position.set(0, 30, 0);
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
         });
         clock = new T.Clock()
+        box = new T.Box3().setFromObject(mesh);
+        center = box.getCenter(new T.Vector3());
+        console.log(center);
+        // mesh.position.sub(center); 
         animate()
         scene.add(mesh)
       })
+
       gsap.to(camera.position, {
-        x: -8,
-        y: 24,
-        z: 92,
+        x: 106,
+        y: 120,
+        z: 47,
         duration: 2,
         ease: "expo.inOut",
         onStart: () => controls.enabled = false,
         onComplete: () => controls.enabled = true,
       },)
       gsap.to(controls.target, {
-        x: -8,
-        y: 24,
+        x: 0,
+        y: 29,
         z: 0,
         duration: 2,
         ease: "expo.inOut",
@@ -743,8 +708,6 @@ var modelIndex = 5;
 window.openDetails = index => {
   modelIndex = index
   document.getElementById("swiper-wrapper").style.display = "none";
-  document.getElementById("textWrapper1").style.display = "none";
-  document.getElementById("textWrapper2").style.display = "none";
   const wrapper = document.getElementById("wrapper")
   const modelWrapper = document.getElementById("modelWrapper")
   wrapper.classList.remove("-bottom-[200%]")
@@ -763,7 +726,7 @@ window.openDetails = index => {
   controls.autoRotateSpeed = 1.5
   setTimeout(() => {
     controls.autoRotate = false
-  }, 7000)
+  }, 5000)
   // renderer.setSize(window.innerWidth, window.innerHeight - 52 - 150)
   // ar.href = ar.href.slice(0, -1) + index
   if (index == 1) {
@@ -801,8 +764,6 @@ window.openDetails = index => {
 }
 window.closeDetails = () => {
   document.getElementById("swiper-wrapper").style.display = "";
-  document.getElementById("textWrapper1").style.display = "";
-  document.getElementById("textWrapper2").style.display = "";
   const wrapper = document.getElementById("wrapper")
   const modelWrapper = document.getElementById("modelWrapper")
   wrapper.classList.add("-bottom-[200%]")
@@ -1013,7 +974,7 @@ const loader5 = new GLTFLoader(loadingManager)
 const loader6 = new GLTFLoader(loadingManager)
 const loader7 = new GLTFLoader(loadingManager)
 const loader8 = new GLTFLoader(loadingManager)
-loader8.setPath("./blackChocolate/");
+loader8.setPath("./");
 loader7.setPath("./blackChocolate/");
 loader6.setPath("./blackChocolate/");
 loader5.setPath("./");
