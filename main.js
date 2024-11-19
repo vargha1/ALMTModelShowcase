@@ -478,11 +478,11 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
       scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
-      loader6.load("hersheys_chocolate_bar_unwrapped.glb", function (gltf) {
+      loader6.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
-        mesh.scale.set(0.07, 0.07, 0.07)
+        mesh.scale.set(40, 40, 40)
         mesh.name = "Sketchfab_Scene6"
-        mesh.position.set(-7, 30, 0);
+        mesh.position.set(0, 30, 0);
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -492,18 +492,18 @@ swiper.on('slideChange', (swiper) => {
         scene.add(mesh)
       })
       gsap.to(camera.position, {
-        x: -8,
-        y: 24,
-        z: 92,
+        x: 234,
+        y: -143,
+        z: -24.5,
         duration: 2,
         ease: "expo.inOut",
         onStart: () => controls.enabled = false,
         onComplete: () => controls.enabled = true,
       },)
       gsap.to(controls.target, {
-        x: -8,
-        y: 24,
-        z: 0,
+        x: 106,
+        y: -133,
+        z: 47,
         duration: 2,
         ease: "expo.inOut",
         onStart: () => controls.enabled = false,
@@ -566,9 +566,9 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
       loader7.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
-        mesh.scale.set(30, 30, 30)
+        mesh.scale.set(40, 40, 40)
         mesh.name = "Sketchfab_Scene7"
-        mesh.position.set(-35, 0, 0);
+        mesh.position.set(0, 30, 0);
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -578,18 +578,18 @@ swiper.on('slideChange', (swiper) => {
         scene.add(mesh)
       })
       gsap.to(camera.position, {
-        x: -108,
-        y: 36,
-        z: 52,
+        x: 234,
+        y: -143,
+        z: -24.5,
         duration: 2,
         ease: "expo.inOut",
         onStart: () => controls.enabled = false,
         onComplete: () => controls.enabled = true,
       },)
       gsap.to(controls.target, {
-        x: -69,
-        y: 24,
-        z: 24,
+        x: 106,
+        y: -133,
+        z: 47,
         duration: 2,
         ease: "expo.inOut",
         onStart: () => controls.enabled = false,
@@ -610,9 +610,9 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene7"))
       loader6.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
-        mesh.scale.set(350, 350, 350)
+        mesh.scale.set(40, 40, 40)
         mesh.name = "Sketchfab_Scene6"
-        mesh.position.set(-7, 0, 0);
+        mesh.position.set(0, 30, 0);
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -622,18 +622,18 @@ swiper.on('slideChange', (swiper) => {
         scene.add(mesh)
       })
       gsap.to(camera.position, {
-        x: -8,
-        y: 24,
-        z: 92,
+        x: 234,
+        y: -143,
+        z: -24.5,
         duration: 2,
         ease: "expo.inOut",
         onStart: () => controls.enabled = false,
         onComplete: () => controls.enabled = true,
       },)
       gsap.to(controls.target, {
-        x: -8,
-        y: 24,
-        z: 0,
+        x: 106,
+        y: -133,
+        z: 47,
         duration: 2,
         ease: "expo.inOut",
         onStart: () => controls.enabled = false,
@@ -697,9 +697,9 @@ swiper.on('slideChange', (swiper) => {
       scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
       loader7.load("scene.gltf", function (gltf) {
         var mesh = gltf.scene;
-        mesh.scale.set(30, 30, 30)
+        mesh.scale.set(40, 40, 40)
         mesh.name = "Sketchfab_Scene7"
-        mesh.position.set(-35, 0, 0);
+        mesh.position.set(0, 30, 0);
         mixer = new T.AnimationMixer(mesh);
         gltf.animations.forEach((clip) => {
           mixer.clipAction(clip).play();
@@ -709,18 +709,18 @@ swiper.on('slideChange', (swiper) => {
         scene.add(mesh)
       })
       gsap.to(camera.position, {
-        x: -108,
-        y: 36,
-        z: 52,
+        x: 234,
+        y: -143,
+        z: -24.5,
         duration: 2,
         ease: "expo.inOut",
         onStart: () => controls.enabled = false,
         onComplete: () => controls.enabled = true,
       },)
       gsap.to(controls.target, {
-        x: -69,
-        y: 24,
-        z: 24,
+        x: 106,
+        y: -133,
+        z: 47,
         duration: 2,
         ease: "expo.inOut",
         onStart: () => controls.enabled = false,
@@ -1012,7 +1012,7 @@ const loader7 = new GLTFLoader(loadingManager)
 const loader8 = new GLTFLoader(loadingManager)
 loader8.setPath("./blackChocolate/");
 loader7.setPath("./blackChocolate/");
-loader6.setPath("./");
+loader6.setPath("./blackChocolate/");
 loader5.setPath("./");
 loader4.setPath("./");
 loader3.setPath("./nestle/");
@@ -1065,7 +1065,7 @@ document.addEventListener("DOMContentLoaded", () => {
     onComplete: () => controls.enabled = true,
   },)
   gsap.to(controls.target, {
-    x:-18,
+    x: -18,
     y: 27,
     z: 0,
     duration: 2,
@@ -1171,7 +1171,7 @@ function restoreMaterial(obj) {
 function animate() {
   requestAnimationFrame(animate);
   mixer.update(clock.getDelta());
-  console.log(camera.position);
+  // console.log(camera.position);
 
   controls.update();
 
