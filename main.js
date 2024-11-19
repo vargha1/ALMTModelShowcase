@@ -556,180 +556,180 @@ swiper.on('slideChange', (swiper) => {
         }
       })
     }
-  //   if (obj.name == "Sketchfab_Scene6" && activeIndex == 6) {
-  //     scene.remove(obj)
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
-  //     loader7.load("scene.gltf", function (gltf) {
-  //       var mesh = gltf.scene;
-  //       mesh.scale.set(30, 30, 30)
-  //       mesh.name = "Sketchfab_Scene7"
-  //       mesh.position.set(-35, 0, 0);
-  //       mixer = new T.AnimationMixer(mesh);
-  //       gltf.animations.forEach((clip) => {
-  //         mixer.clipAction(clip).play();
-  //       });
-  //       clock = new T.Clock()
-  //       animate()
-  //       scene.add(mesh)
-  //     })
-  //     gsap.to(camera.position, {
-  //       x: -108,
-  //       y: 36,
-  //       z: 52,
-  //       duration: 2,
-  //       ease: "expo.inOut",
-  //       onStart: () => controls.enabled = false,
-  //       onComplete: () => controls.enabled = true,
-  //     },)
-  //     gsap.to(controls.target, {
-  //       x: -69,
-  //       y: 24,
-  //       z: 24,
-  //       duration: 2,
-  //       ease: "expo.inOut",
-  //       onStart: () => controls.enabled = false,
-  //       onComplete: () => controls.enabled = true,
-  //       onUpdate: function () {
-  //         controls.update()
-  //       }
-  //     })
-  //   }
-  //   if (obj.name == "Sketchfab_Scene7" && activeIndex == 5) {
-  //     scene.remove(obj)
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene7"))
-  //     loader6.load("scene.gltf", function (gltf) {
-  //       var mesh = gltf.scene;
-  //       mesh.scale.set(350, 350, 350)
-  //       mesh.name = "Sketchfab_Scene6"
-  //       mesh.position.set(-7, 0, 0);
-  //       mixer = new T.AnimationMixer(mesh);
-  //       gltf.animations.forEach((clip) => {
-  //         mixer.clipAction(clip).play();
-  //       });
-  //       clock = new T.Clock()
-  //       animate()
-  //       scene.add(mesh)
-  //     })
-  //     gsap.to(camera.position, {
-  //       x: -8,
-  //       y: 24,
-  //       z: 92,
-  //       duration: 2,
-  //       ease: "expo.inOut",
-  //       onStart: () => controls.enabled = false,
-  //       onComplete: () => controls.enabled = true,
-  //     },)
-  //     gsap.to(controls.target, {
-  //       x: -8,
-  //       y: 24,
-  //       z: 0,
-  //       duration: 2,
-  //       ease: "expo.inOut",
-  //       onStart: () => controls.enabled = false,
-  //       onComplete: () => controls.enabled = true,
-  //       onUpdate: function () {
-  //         controls.update()
-  //       }
-  //     })
-  //   }
-  //   if (obj.name == "Sketchfab_Scene7" && activeIndex == 7) {
-  //     scene.remove(obj)
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene7"))
-  //     loader8.load("scene.gltf", function (gltf) {
-  //       var mesh = gltf.scene;
-  //       mesh.scale.set(0.5, 0.5, 0.5)
-  //       mesh.name = "Sketchfab_Scene8"
-  //       mesh.position.set(-8, 0, 0);
-  //       mixer = new T.AnimationMixer(mesh);
-  //       gltf.animations.forEach((clip) => {
-  //         mixer.clipAction(clip).play();
-  //       });
-  //       clock = new T.Clock()
-  //       animate()
-  //       scene.add(mesh)
-  //     })
-  //     gsap.to(camera.position, {
-  //       x: -8,
-  //       y: 24,
-  //       z: 92,
-  //       duration: 2,
-  //       ease: "expo.inOut",
-  //       onStart: () => controls.enabled = false,
-  //       onComplete: () => controls.enabled = true,
-  //     },)
-  //     gsap.to(controls.target, {
-  //       x: -8,
-  //       y: 24,
-  //       z: 0,
-  //       duration: 2,
-  //       ease: "expo.inOut",
-  //       onStart: () => controls.enabled = false,
-  //       onComplete: () => controls.enabled = true,
-  //       onUpdate: function () {
-  //         controls.update()
-  //       }
-  //     })
-  //   }
-  //   if (obj.name == "Sketchfab_Scene8" && activeIndex == 6) {
-  //     scene.remove(obj)
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
-  //     scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
-  //     loader7.load("scene.gltf", function (gltf) {
-  //       var mesh = gltf.scene;
-  //       mesh.scale.set(30, 30, 30)
-  //       mesh.name = "Sketchfab_Scene7"
-  //       mesh.position.set(-35, 0, 0);
-  //       mixer = new T.AnimationMixer(mesh);
-  //       gltf.animations.forEach((clip) => {
-  //         mixer.clipAction(clip).play();
-  //       });
-  //       clock = new T.Clock()
-  //       animate()
-  //       scene.add(mesh)
-  //     })
-  //     gsap.to(camera.position, {
-  //       x: -108,
-  //       y: 36,
-  //       z: 52,
-  //       duration: 2,
-  //       ease: "expo.inOut",
-  //       onStart: () => controls.enabled = false,
-  //       onComplete: () => controls.enabled = true,
-  //     },)
-  //     gsap.to(controls.target, {
-  //       x: -69,
-  //       y: 24,
-  //       z: 24,
-  //       duration: 2,
-  //       ease: "expo.inOut",
-  //       onStart: () => controls.enabled = false,
-  //       onComplete: () => controls.enabled = true,
-  //       onUpdate: function () {
-  //         controls.update()
-  //       }
-  //     })
-  //   }
+    if (obj.name == "Sketchfab_Scene6" && activeIndex == 6) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
+      loader7.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(30, 30, 30)
+        mesh.name = "Sketchfab_Scene7"
+        mesh.position.set(-35, 0, 0);
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      gsap.to(camera.position, {
+        x: -108,
+        y: 36,
+        z: 52,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: -69,
+        y: 24,
+        z: 24,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene7" && activeIndex == 5) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene7"))
+      loader6.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(350, 350, 350)
+        mesh.name = "Sketchfab_Scene6"
+        mesh.position.set(-7, 0, 0);
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      gsap.to(camera.position, {
+        x: -8,
+        y: 24,
+        z: 92,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: -8,
+        y: 24,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene7" && activeIndex == 7) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene7"))
+      loader8.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(0.5, 0.5, 0.5)
+        mesh.name = "Sketchfab_Scene8"
+        mesh.position.set(-8, 0, 0);
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      gsap.to(camera.position, {
+        x: -8,
+        y: 24,
+        z: 92,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: -8,
+        y: 24,
+        z: 0,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
+    if (obj.name == "Sketchfab_Scene8" && activeIndex == 6) {
+      scene.remove(obj)
+      scene.remove(scene.getObjectByName("Sketchfab_Scene"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene2"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene3"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene4"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene5"))
+      scene.remove(scene.getObjectByName("Sketchfab_Scene6"))
+      loader7.load("scene.gltf", function (gltf) {
+        var mesh = gltf.scene;
+        mesh.scale.set(30, 30, 30)
+        mesh.name = "Sketchfab_Scene7"
+        mesh.position.set(-35, 0, 0);
+        mixer = new T.AnimationMixer(mesh);
+        gltf.animations.forEach((clip) => {
+          mixer.clipAction(clip).play();
+        });
+        clock = new T.Clock()
+        animate()
+        scene.add(mesh)
+      })
+      gsap.to(camera.position, {
+        x: -108,
+        y: 36,
+        z: 52,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+      },)
+      gsap.to(controls.target, {
+        x: -69,
+        y: 24,
+        z: 24,
+        duration: 2,
+        ease: "expo.inOut",
+        onStart: () => controls.enabled = false,
+        onComplete: () => controls.enabled = true,
+        onUpdate: function () {
+          controls.update()
+        }
+      })
+    }
   })
 
   for (let i = 0; i < document.getElementById("swiper-wrapper").children.length; i++) {
@@ -1008,10 +1008,10 @@ const loader3 = new GLTFLoader(loadingManager)
 const loader4 = new GLTFLoader(loadingManager)
 const loader5 = new GLTFLoader(loadingManager)
 const loader6 = new GLTFLoader(loadingManager)
-// const loader7 = new GLTFLoader(loadingManager)
-// const loader8 = new GLTFLoader(loadingManager)
-// loader8.setPath("./catFood/");
-// loader7.setPath("./suzuki/");
+const loader7 = new GLTFLoader(loadingManager)
+const loader8 = new GLTFLoader(loadingManager)
+loader8.setPath("./blackChocolate/");
+loader7.setPath("./blackChocolate/");
 loader6.setPath("./");
 loader5.setPath("./");
 loader4.setPath("./");
@@ -1030,8 +1030,8 @@ Promise.all([
   loader4.loadAsync('scene.gltf'),
   loader5.loadAsync('scene.gltf'),
   loader6.loadAsync('scene.gltf'),
-  // loader7.loadAsync('scene.gltf'),
-  // loader8.loadAsync('scene.gltf')
+  loader7.loadAsync('scene.gltf'),
+  loader8.loadAsync('scene.gltf')
 ])
 renderer.setPixelRatio(window.devicePixelRatio);
 renderer.setSize(window.innerWidth, window.innerHeight);
