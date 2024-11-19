@@ -761,6 +761,9 @@ window.openDetails = index => {
   controls.enableZoom = true
   controls.autoRotate = true
   controls.autoRotateSpeed = 1.5
+  setTimeout(() => {
+    controls.autoRotate = false
+  }, 7000)
   // renderer.setSize(window.innerWidth, window.innerHeight - 52 - 150)
   // ar.href = ar.href.slice(0, -1) + index
   if (index == 1) {
@@ -814,9 +817,6 @@ window.closeDetails = () => {
   controls.enablePan = false
   controls.enableZoom = false
   controls.autoRotate = false
-  setTimeout(() => {
-    controls.autoRotate = false
-  }, 7000)
   if (modelIndex == 1) {
     gsap.to(camera.position, {
       x: -18,
